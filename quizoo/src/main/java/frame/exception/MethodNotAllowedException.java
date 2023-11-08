@@ -1,3 +1,4 @@
+package frame.exception;
 public class MethodNotAllowedException extends Exception{
 	public MethodNotAllowedException() {
 		super();

@@ -1,3 +1,4 @@
+package frame.context;
 public interface RequestContext {
 	public void setAttrubute(String key,Object value);
 	public String[] getParameter(String key);

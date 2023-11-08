@@ -1,2 +1,2 @@
-package src.web.copy;
+package web.copy;
 public class LoginFilter {} 
