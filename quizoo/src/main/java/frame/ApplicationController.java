@@ -1,4 +1,5 @@
 package frame;
+import frame.context.RequestContext;
 import frame.context.ResponseContext;
 
 public interface ApplicationController {
