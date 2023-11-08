@@ -1,5 +1,3 @@
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-
 import frame.context.ResponseContext;
 
 public interface ApplicationController {
