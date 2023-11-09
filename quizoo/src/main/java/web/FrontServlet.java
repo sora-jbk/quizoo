@@ -18,8 +18,7 @@ public class FrontServlet extends HttpServlet{
 		
 		RequestContext reqc = appctl.getRequest(req);
 		
-		ResponseContext respc = appctl.handleRequest(reqc);
-		
+		ResponseContext respc = appctl.handleRequest(resp);
 		
 		appctl.handleResponse(reqc, respc);
 		

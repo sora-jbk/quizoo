@@ -17,7 +17,6 @@ public class HttpResponseContext implements ResponseContext{
 
 	@Override
 	public void forward(String uri, RequestContext req) {
-		// TODO 自動生成されたメソッド・スタブ
 		
 	}
 
