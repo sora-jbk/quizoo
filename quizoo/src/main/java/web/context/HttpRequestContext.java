@@ -44,7 +44,7 @@ public class HttpRequestContext implements RequestContext{
 
 	@Override
 	public String getRequestTarget() {
-		return req.getRequestURI();
+		return req.getRequestURI().split("[?]")[0].replaceAll("/", ".").substring(1);
 	}
 	
 } 
