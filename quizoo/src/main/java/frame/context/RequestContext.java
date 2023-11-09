@@ -4,5 +4,6 @@ public interface RequestContext {
 	public String[] getParameter(String key);
 	public void setId(String id);
 	public String getId();
-	public String getTarget();
+	public void setTarget(String target);
+	public String getRequestTarget();
 } 

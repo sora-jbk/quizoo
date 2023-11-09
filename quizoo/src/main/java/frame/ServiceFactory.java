@@ -1,4 +1,7 @@
 package frame;
+
+import frame.context.RequestContext;
+
 public abstract class ServiceFactory {
 	public static Service getService(RequestContext req) {
 		String target = req.getTarget();

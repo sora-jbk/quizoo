@@ -16,7 +16,7 @@ public class HttpRequestContext implements RequestContext{
 		this.req = req;
 		this.session = req.getSession();
 	}
-
+	
 	@Override
 	public void setAttrubute(String key, Object value) {
 		req.setAttribute(key, value);
@@ -38,8 +38,13 @@ public class HttpRequestContext implements RequestContext{
 	}
 
 	@Override
-	public String getTarget() {
-		return target;
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	@Override
+	public String getRequestTarget() {
+		return req.getRequestURI();
 	}
 	
 } 

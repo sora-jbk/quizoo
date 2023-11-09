@@ -4,8 +4,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-
 import frame.context.ResponseContext;
 
 public class HttpResponseContext implements ResponseContext{
@@ -15,10 +13,6 @@ public class HttpResponseContext implements ResponseContext{
 		this.res = res;
 	}
 
-	@Override
-	public void forward(String uri, RequestContext req) {
-		
-	}
 
 	@Override
 	public PrintWriter getWriter() {
