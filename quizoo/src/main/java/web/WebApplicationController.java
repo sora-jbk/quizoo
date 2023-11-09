@@ -38,7 +38,6 @@ public class WebApplicationController implements ApplicationController{
 			try {
 				disp.forward(req, res);
 			} catch (ServletException | IOException e) {
-				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
 		}
