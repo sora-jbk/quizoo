@@ -1,1 +1,9 @@
-public class MethodNotAllowedException {} 
+package frame.exception;
+public class MethodNotAllowedException extends Exception{
+	public MethodNotAllowedException() {
+		super();
+	}
+	public MethodNotAllowedException(String msg) {
+		super(msg);
+	}
+} 
