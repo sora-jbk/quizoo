@@ -32,7 +32,7 @@ public class WebApplicationController implements ApplicationController{
 
 	@Override
 	public void handleResponse(RequestContext request, ResponseContext response) {
-		String target = request.getRequestTarget();
+		String target = request.getTarget();
 		if(target != null) {
 			RequestDispatcher disp = req.getRequestDispatcher("target");
 			try {
