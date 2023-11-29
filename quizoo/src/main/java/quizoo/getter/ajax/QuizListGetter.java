@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import db.bean.QuizBean;
 import db.dao.QuizDao;
 import frame.Service;
 import frame.context.RequestContext;
@@ -20,7 +21,7 @@ public class QuizListGetter extends Service {
 		PrintWriter out = res.getWrite();
 		
 		QuizDao quizDao = new QuizDao();
-		ArrayList quizList = quizDao.sortGenreQuiz();
+		ArrayList<QuizBean> quizList = quizDao.sortGenreQuiz();
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		
