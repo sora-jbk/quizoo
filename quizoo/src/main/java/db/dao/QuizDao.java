@@ -147,6 +147,58 @@ public class QuizDao extends Dao{
 		
 	}
 	
+	public ArrayList<QuizBean> sortGenreQuiz() throws ResourceException {
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		ArrayList<QuizBean> quizlist = new ArrayList<>();
+		
+		try {
+			connect();
+			
+			String sql = "SELECT * FROM quiz INNER JOIN genre USING(genre_no) ORDER BY genre_no"; 
+			st = cn.prepareStatement(sql);
+			rs = st.executeQuery();
+			
+			while(rs.next()) {
+				QuizBean quizbean = new QuizBean();
+				quizbean.setQuizId(rs.getInt("quiz_id"));
+				quizbean.setAuthorNo(rs.getInt("author_no"));
+				quizbean.setTitle(rs.getString("title"));
+				quizbean.setQuestionCount(rs.getInt("question_count"));
+				quizbean.setGenreNo(rs.getInt("genre_no"));
+				quizbean.setGenre(rs.getString("genre_title"));
+				quizbean.setExplanation(rs.getString("explanation"));
+				quizbean.setCreateTime(rs.getString("create_time"));
+				quizbean.setCorrectRate(rs.getFloat("correct_rate"));
+				quizbean.setTotalParticipants(rs.getInt("total_participants"));	
+				
+				quizlist.add(quizbean);
+			
+			}
+		} catch(SQLException e) {
+			try {
+				cn.rollback();
+			} catch(SQLException e2) {
+				throw new ResourceException(e2.getMessage(), e2);
+			}
+		} finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				if(st != null) {
+					st.close();
+				}
+			} catch(SQLException e2) {
+				throw new ResourceException(e2.getMessage(), e2);
+			} finally {
+				close();
+			}
+		}
+		return quizlist;
+	}
+	
 	public void deleteQuiz(int quizId) throws ResourceException {
 		PreparedStatement st = null;
 		

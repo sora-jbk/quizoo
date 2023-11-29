@@ -20,7 +20,7 @@ public class QuizListGetter extends Service {
 		PrintWriter out = res.getWrite();
 		
 		QuizDao quizDao = new QuizDao();
-		ArrayList quizList = quizDao.selectQuiz();
+		ArrayList quizList = quizDao.sortGenreQuiz();
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		
