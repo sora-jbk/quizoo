@@ -128,6 +128,7 @@ public class UserInfoDao extends Dao {
 			close();
 		}
 	}
+
 	//スコアの更新
 	public void updateScore(int answered, int correct) throws ResourceException {
 		PreparedStatement st = null;
@@ -135,14 +136,18 @@ public class UserInfoDao extends Dao {
 			connect();
 			//合計回答数と合計正解数のアップデートのSQL
 			String sql = "UPDATE userinfo SET total_answered = ?, correct_ansewerd = ?";
+      
 			st = cn.prepareStatement(sql);
 			st.setInt(1, answered);
 			st.setInt(2, correct);
+			st.setInt(3, userNo);
 			st.executeUpdate();
 
 			cn.commit();
 		} catch (SQLException e) {
 			throw new ResourceException(e.getMessage(), e);
 		}
+		
+		close();
 	}
 }

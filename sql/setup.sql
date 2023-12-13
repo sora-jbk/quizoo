@@ -49,10 +49,10 @@ CREATE TABLE question (
 	quiz_id MEDIUMINT UNSIGNED REFERENCES quiz(quiz_id),
 	question_id TINYINT UNSIGNED,
 	question VARCHAR(500) NOT NULL,
-	choise_1 VARCHAR(50) NOT NULL,
-	choise_2 VARCHAR(50) NOT NULL,
-	choise_3 VARCHAR(50),
-	choise_4 VARCHAR(50),
+	choice_1 VARCHAR(50) NOT NULL,
+	choice_2 VARCHAR(50) NOT NULL,
+	choice_3 VARCHAR(50),
+	choice_4 VARCHAR(50),
 	judge BIT(4) NOT NULL,
 	PRIMARY KEY(quiz_id, question_id)
 );

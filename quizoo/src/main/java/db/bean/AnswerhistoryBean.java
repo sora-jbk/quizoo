@@ -3,6 +3,7 @@ package db.bean;
 import java.io.Serializable;
 
 public class AnswerhistoryBean implements Serializable{
+	private int quizId;
 	private String answeredTime;
 	private int questionCount;
 	private int correctCount;
@@ -16,6 +17,14 @@ public class AnswerhistoryBean implements Serializable{
 		this.questionCount = questionCount;
 		this.correctCount = correctCount;
 		this.quizbean = quizbean;
+	}
+	
+	public int getQuizId() {
+		return quizId;
+	}
+
+	public void setQuizId(int quizId) {
+		this.quizId = quizId;
 	}
 
 	public String getAnsweredTime() {

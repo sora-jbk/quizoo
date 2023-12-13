@@ -17,7 +17,7 @@ INSERT INTO nickname (user_no, nickname) VALUES
 
 
 /* genre テーブルへのデータ挿入 */
-INSERT INTO genre (genre_no, genre_title) VALUES
+INSERT INTO  genre(genre_no, genre_title) VALUES
 (1, 'スポーツ'),
 (2, '音楽'),
 (3, '映画'),
@@ -29,7 +29,16 @@ INSERT INTO genre (genre_no, genre_title) VALUES
 (9, '生き物'),
 (10, '歴史'),
 (11, '数学'),
-(12, '漫画');
+(12, '漫画'),
+(13, '生活'),
+(14, '地理'),
+(15, 'お酒'),
+(16, '美術'),
+(17, 'ことば'),
+(18, '文化'),
+(19, '料理'),
+(20, 'アニメ');
+
 
 
 /* quiz テーブルへのデータ挿入 */
@@ -40,13 +49,13 @@ INSERT INTO quiz (author_no, title, question_count, genre_no, explanation, creat
 
 
 /* question テーブルへのデータ挿入 */
-INSERT INTO question (quiz_id, question_id, question, choise_1, choise_2, choise_3, choise_4, judge) VALUES
+INSERT INTO question (quiz_id, question_id, question, choice_1, choice_2, choice_3, choice_4, judge) VALUES
 (1, 1, '亘の好きな食べ物は？', 'ラーメン', '寿司', 'カツオ', 'プリン', b'1100'),
 (1, 2, '亘の嫌いな食べ物は？', 'カツオ', 'プリン', 'カリフラワー', '大根', b'0010'),
 (1, 3, '亘の身長は？', '169', '170', '171', '172', b'0010'),
-(2, 4, '地引の居住地は？', '神栖', '筑波', '大洗', '取手', b'0001'),
-(3, 5, '「く」から始まる幸せな顔をした動物は？', 'クシナダ', 'クオッカ', 'クジラ', 'バナナ', b'0100'),
-(3, 6, 'オランウータンの握力は何キロ？', '100', '150', '200', '250', b'0010');
+(2, 1, '地引の居住地は？', '神栖', '筑波', '大洗', '取手', b'0001'),
+(3, 1, '「く」から始まる幸せな顔をした動物は？', 'クシナダ', 'クオッカ', 'クジラ', 'バナナ', b'0100'),
+(3, 2, 'オランウータンの握力は何キロ？', '100', '150', '200', '250', b'0010');
 
 
 INSERT INTO answerhistory (user_no, quiz_id, answered_time, correct_count) VALUES
