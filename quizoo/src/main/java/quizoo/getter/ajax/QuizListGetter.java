@@ -23,54 +23,45 @@ public class QuizListGetter extends Service {
 		paramColMap.put("ganle", "genre_no");
 		paramColMap.put("popular", "total_participants");
 	}
+	
 	@Override
 	public void execute(RequestContext req, ResponseContext res) throws IOException, ResourceException {
-		
-		ArrayList<QuizBean> quizList = new ArrayList<>();
-		
-		String[] order = req.getParameter("order");
-		String orderStr = "create_time";
-		
-		String[] genreNo = req.getParameter("genreNo");
-		Integer genreNoInteger = null;
-		 
 
-		if (genreNo != null) {
-            genreNoInteger = Integer.valueOf(genreNo[0]);
-            //genreNoInt = genreNoInteger.intValue();
-        }
-		
-		
-		if(order != null) {
-			orderStr = paramColMap.get(order[0]);			
-		}
-		
-		
-		QuizDao quizDao = new QuizDao();
-		
-		if(genreNoInteger != null && orderStr != null) {
-			
-			quizList = quizDao.selectOrderedQuiz(orderStr, (int)genreNoInteger);
-			
-		} else if(genreNoInteger == null && order != null) {
-			
-			quizList = quizDao.selectOrderedQuiz(orderStr);
-			
-		} else if(genreNoInteger != null && orderStr == null){
-			quizList = quizDao.searchQuiz((int)genreNoInteger);
-		} else {
-			quizList = quizDao.selectQuiz();
-		}
-		
-		
+	    ArrayList<QuizBean> quizList = new ArrayList<>();
 
-		PrintWriter out = res.getWrite();
-		
-		Gson gson = new Gson();
-		String result = gson.toJson(quizList);
-		
-		out.println(result);
+	    String[] order = req.getParameter("order");
+	    String orderStr = "create_time";
 
+	    String[] genreNo = req.getParameter("genreNo");
+	    Integer genreNoInteger = null;
+
+	    if (genreNo != null) {
+	        genreNoInteger = Integer.valueOf(genreNo[0]);
+	    }
+
+	    if (order != null) {
+	        orderStr = paramColMap.get(order[0]);
+	    }
+
+	    QuizDao quizDao = new QuizDao();
+
+	    if (genreNoInteger != null && orderStr != null) {
+	        quizList = quizDao.selectOrderedQuiz(orderStr, genreNoInteger);
+	    } else if (genreNoInteger == null && order != null) {
+	        quizList = quizDao.selectOrderedQuiz(orderStr);
+	    } else if (genreNoInteger != null && orderStr == null) {
+	        quizList = quizDao.searchQuiz(genreNoInteger);
+	    } else {
+	        quizList = quizDao.selectQuiz();
+	    }
+
+	    PrintWriter out = res.getWrite();
+
+	    Gson gson = new Gson();
+	    String result = gson.toJson(quizList);
+
+	    out.println(result);
 	}
+
 
 }

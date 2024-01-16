@@ -74,12 +74,23 @@
 		</header>
 		<!--	下のヘッダー-->
 		<header class="secondary-header">
-			<ul>
-				<li><a class="order_btn">new</a></li>
-				<li><a class="order_btn">genre</a></li>
-				<li><a class="order_btn">popular</a></li>
-			</ul>
-
+		    <ul>
+		        <!-- オーダーボタン -->
+		        <li><a class="order_btn" onclick="loadQuiz('new')">new</a></li>
+		        <li>
+		            <div class="dropdown">
+		                <a class="order_btn dropdown-toggle" href="#" role="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                    genre
+		                </a>
+		                <div class="dropdown-menu" aria-labelledby="genreDropdown">
+		                    <a class="dropdown-item" href="#" onclick="loadQuiz('genre', 1)">ジャンル1</a>
+		                    <a class="dropdown-item" href="#" onclick="loadQuiz('genre', 2)">ジャンル2</a>
+		                    <!-- 必要に応じて他のジャンルを追加してください -->
+		                </div>
+		            </div>
+		        </li>
+		        <li><a class="order_btn" onclick="loadQuiz('popular')">popular</a></li>
+		    </ul>
 		</header>
 
 		<div class="quiz_list">
@@ -230,6 +241,65 @@
 				});
 			}
 		</script>
+		
+		<!-- ジャンルのためのスクリプトと関連部分 -->
+		<script>
+	        $(document).ready(function () {
+	            // ジャンルのデータを適切に設定してください
+	            var genres = [
+	                { value: '1', label: 'ジャンル1' },
+	                { value: '2', label: 'ジャンル2' },
+	                // 他のジャンル...
+	            ];
+	
+	            // ジャンルの選択肢を動的に生成
+	            var genreSelect = $('#genreSelect');
+	            $.each(genres, function (index, genre) {
+	                genreSelect.append('<option value="' + genre.value + '">' + genre.label + '</option>');
+	            });
+	        });
+	
+	        function loadQuiz(order, genreNo) {
+	            var genreNo = $('#genreSelect').val();
+	
+	            $.ajax({
+	                type: "GET",
+	                url: "QuizListGetter",
+	                data: {
+	                    order: order,
+	                    genreNo: genreNo
+	                },
+	                success: function (response) {
+	                    // クイズリストを更新するための関数を呼び出す
+	                    updateQuizList(response);
+	                },
+	                error: function (error) {
+	                    console.log("クイズの読み込みエラー: " + error);
+	                }
+	            });
+	        }
+	
+	        function updateQuizList(data) {
+	            // クイズリストを更新するためのコードを追加
+	            // (例: データを解析してクイズを表示する)
+	            var quizListContainer = $('.quiz_list');
+	            quizListContainer.empty(); // 既存のコンテンツをクリア
+	
+	            // レスポンス内のクイズをループして、コンテナに追加
+	            data.forEach(function (quiz) {
+	                var quizHtml = '<div class="box">' +
+	                    '<div class="width row">' +
+	                    '<div class="title col">' + quiz.title + '</div>' +
+	                    '<div class="d-flex align-items-center col">' + quiz.description + '</div>' +
+	                    '</div>' +
+	                    '<div class="information text-right">作成者：<a class="author">' + quiz.author + '</a> 作成日：<a class="create_time">' + quiz.createDate + '</a> ジャンル：<a class="genre">' + quiz.genre + '</a> 正解率：<a class="raito">' + quiz.correctRate + '</a></div>' +
+	                    '</div>';
+	
+	                quizListContainer.append(quizHtml);
+	            });
+	        }
+	    </script>
+		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
