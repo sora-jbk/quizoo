@@ -78,15 +78,15 @@
 		        <li><a class="order_btn" onclick="getQuizList()">new</a></li>
 		        <li>
 		            <div class="dropdown">
-		                <button class="order_btn dropdown-toggle" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                    genre
-		                </button>
-		                <div class="dropdown-menu" aria-labelledby="genreDropdown">
-		                    <a class="dropdown-item" href="#" onclick="getQuizList()">音楽</a>
-		                    <a class="dropdown-item" href="#" onclick="getQuizList()">雑学</a>
-		                    <a class="dropdown-item" href="#" onclick="getQuizList()">数学</a>
-		                </div>
-		            </div>
+					    <button class="order_btn dropdown-toggle" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					        genre
+					    </button>
+					    <div class="dropdown-menu" aria-labelledby="genreDropdown">
+					        <a class="dropdown-item" href="#" onclick="getQuizListByGenre(2)">音楽</a>
+					        <a class="dropdown-item" href="#" onclick="getQuizListByGenre(5)">雑学</a>
+					        <!-- 必要に応じて他のジャンルを追加 -->
+					    </div>
+					</div>
 		        </li>
 		        <li><a class="order_btn" onclick="getQuizList()">popular</a></li>
 		    </ul>

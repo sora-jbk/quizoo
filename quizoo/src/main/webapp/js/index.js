@@ -26,6 +26,14 @@ window.addEventListener('load',function(){
     })();
 })
 
+// 新しい関数: ジャンルを取得してクエリに追加
+function getSelectedGenre() {
+    var genreDropdown = document.getElementById("genreDropdown");
+    var selectedGenre = genreDropdown.options[genreDropdown.selectedIndex].value;
+
+    return selectedGenre;
+}
+
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
@@ -37,9 +45,8 @@ async function getQuizList() {
         param = "";
     }
 
-    var genreDropdown = document.getElementById("genreDropdown");
-    var selectedGenre = genreDropdown.options[genreDropdown.selectedIndex].value;
-
+    // 新しいコード: 選択されたジャンルをクエリに追加
+    var selectedGenre = getSelectedGenre();
     if (selectedGenre) {
         param += "&genreNo=" + selectedGenre;
     }
@@ -51,6 +58,33 @@ async function getQuizList() {
     // 取得したクイズリストを処理する（UIを更新するなど）
     console.log(quizList);
 }
+
+function getQuizListByGenre(genreNo) {
+    // Ajax リクエストを修正
+    $.ajax({
+        type: "GET",
+        url: "QuizListGetter",
+        data: { genreNo: genreNo }, // ジャンル情報を渡す
+        success: function (data) {
+            updateQuizList(data);
+        },
+        error: function () {
+            console.error("ジャンル別のクイズの取得中にエラーが発生しました。");
+        }
+    });
+}
+
+// ジャンルドロップダウン変更時にクイズを再取得するための関数
+function updateQuizListByGenre() {
+    var selectedGenre = getSelectedGenre();
+    history.replaceState(null, null, window.location.pathname + "?genreNo=" + selectedGenre);
+    getQuizList();
+}
+
+// ジャンルドロップダウンの変更イベントにリスナーを追加
+var genreDropdown = document.getElementById("genreDropdown");
+genreDropdown.addEventListener("change", updateQuizListByGenre);
+
 
 async function quizlistFactory(quizList){
 
