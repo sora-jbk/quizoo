@@ -46,11 +46,11 @@
 					</div>
 				</div>
 				<!-- ハンバーガーメニュー -->
-				<buttom class="drawer__button">
+				<button class="drawer__button">
 					<span></span>
 					<span></span>
 					<span></span>
-				</buttom>
+				</button>
 				<nav class="drawer__nav">
 					<div class="drawer__nav__inner">
 						<ul class="drawer__nav__menu">
@@ -75,26 +75,25 @@
 		<!--	下のヘッダー-->
 		<header class="secondary-header">
 		    <ul>
-		        <!-- オーダーボタン -->
-		        <li><a class="order_btn" onclick="loadQuiz('new')">new</a></li>
+		        <li><a class="order_btn" onclick="getQuizList()">new</a></li>
 		        <li>
 		            <div class="dropdown">
-		                <a class="order_btn dropdown-toggle" href="#" role="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                <button class="order_btn dropdown-toggle" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		                    genre
-		                </a>
+		                </button>
 		                <div class="dropdown-menu" aria-labelledby="genreDropdown">
-		                    <a class="dropdown-item" href="#" onclick="loadQuiz('genre', 1)">ジャンル1</a>
-		                    <a class="dropdown-item" href="#" onclick="loadQuiz('genre', 2)">ジャンル2</a>
-		                    <!-- 必要に応じて他のジャンルを追加してください -->
+		                    <a class="dropdown-item" href="#" onclick="getQuizList()">音楽</a>
+		                    <a class="dropdown-item" href="#" onclick="getQuizList()">雑学</a>
+		                    <a class="dropdown-item" href="#" onclick="getQuizList()">数学</a>
 		                </div>
 		            </div>
 		        </li>
-		        <li><a class="order_btn" onclick="loadQuiz('popular')">popular</a></li>
+		        <li><a class="order_btn" onclick="getQuizList()">popular</a></li>
 		    </ul>
 		</header>
 
-		<div class="quiz_list">
-			<div class="box">
+		<div class="quiz_list" id="quiz_list">
+			<div class="quiz">
 				<div class="width row">
 					<div class="title col">常識クイズ</div>
 					<div class="d-flex align-items-center col">常識に関するクイズです</div>
@@ -241,7 +240,6 @@
 				});
 			}
 		</script>
-		
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

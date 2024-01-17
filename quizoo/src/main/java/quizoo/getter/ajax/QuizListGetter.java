@@ -63,5 +63,4 @@ public class QuizListGetter extends Service {
 	    out.println(result);
 	}
 
-
 }

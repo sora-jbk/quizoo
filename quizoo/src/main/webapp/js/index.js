@@ -31,18 +31,25 @@ async function getQuizList() {
 
     param = params.get("order");
 
-    if(param){
-        param = "?order="+param;
-    }else{
+    if (param) {
+        param = "?order=" + param;
+    } else {
         param = "";
+    }
+
+    var genreDropdown = document.getElementById("genreDropdown");
+    var selectedGenre = genreDropdown.options[genreDropdown.selectedIndex].value;
+
+    if (selectedGenre) {
+        param += "&genreNo=" + selectedGenre;
     }
 
     var quizList = await fetch("/quizoo/quizlist" + param);
 
     quizList = await quizList.json();
 
-    return quizList;
-
+    // 取得したクイズリストを処理する（UIを更新するなど）
+    console.log(quizList);
 }
 
 async function quizlistFactory(quizList){
