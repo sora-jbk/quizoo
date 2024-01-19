@@ -34,12 +34,12 @@ public class QuizListGetter extends Service {
 
 	    String[] genreNo = req.getParameter("genreNo");
 	    Integer genreNoInteger = null;
-		
-		System.out.println(genreNo);
 
 	    if (genreNo != null) {
 	        genreNoInteger = Integer.valueOf(genreNo[0]);
 	    }
+
+		System.out.println(genreNoInteger);
 
 	    if (order != null) {
 	        orderStr = paramColMap.get(order[0]);
