@@ -256,7 +256,7 @@
 			crossorigin="anonymous"></script>
 		<script src="js/index.js"></script>
 		<script src="js/createQuiz.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
 
