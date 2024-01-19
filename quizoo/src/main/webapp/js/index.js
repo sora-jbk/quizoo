@@ -56,7 +56,7 @@ function getQuizListByGenre(genreNo) {
     // Ajax リクエストを修正
     $.ajax({
         type: "GET",
-        url: "QuizListGetter",
+        url: "/quizoo/quizlist",
         data: { genreNo: genreNo }, // ジャンル情報を渡す
         success: function (data) {
             updateQuizList(data); // 受信したデータでupdateQuizList関数を呼び出す
