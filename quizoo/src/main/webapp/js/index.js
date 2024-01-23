@@ -49,6 +49,7 @@ async function getQuizList() {
 function updateQuizList(data) {
     list = quizlistFactory(data);
     list_box.replaceWith(list);
+    console.log("こちらも成功ですよ");
 }
 
 // getQuizListByGenre関数を修正
@@ -60,6 +61,7 @@ function getQuizListByGenre(genreNo) {
         data: { genreNo: genreNo }, // ジャンル情報を渡す
         success: function (data) {
             updateQuizList(data); // 受信したデータでupdateQuizList関数を呼び出す
+            console.log("成功ですよ");
         },
         error: function () {
             console.error("ジャンル別のクイズの取得中にエラーが発生しました。");
