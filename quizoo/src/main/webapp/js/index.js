@@ -13,13 +13,11 @@ window.addEventListener('load',function(){
             getQuizList();
             
         });
-        
     }
     (async ()=>{
         quizList = await getQuizList();
     
         list = await quizlistFactory(quizList);
-    
     
         list_box.replaceWith(list); 
     
@@ -28,16 +26,20 @@ window.addEventListener('load',function(){
 
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
+    orderType = params.get("order");
+    // genreNo = params.get("genre");
 
-    param = params.get("order");
+    // index(login)?order=new&genre=1
+    // 選択されているジャンルを取得
+    // ジャンルが選択されていればパラメータに追加
 
-    if(param){
-        param = "?order="+param;
+    if(orderType){
+        orderType = "?order="+orderType;
     }else{
-        param = "";
+        orderType = "";
     }
 
-    var quizList = await fetch("/quizoo/quizlist" + param);
+    var quizList = await fetch("/quizoo/quizlist" + orderType);
 
     quizList = await quizList.json();
 
