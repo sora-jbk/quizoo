@@ -64,7 +64,7 @@
 								<a class="drawer__nav__link" href="score">スコア詳細</a>
 							</li>
 							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">ログアウト</a>
+								<a class="drawer__nav__link" href="logout">ログアウト</a>
 							</li>
 						</ul>
 					</div>
