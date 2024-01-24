@@ -9,7 +9,20 @@ window.addEventListener('load',function(){
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
-            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
+            var order = "";
+            if (this.innerText.includes("genre") && this.innerText.includes("new")) {
+                order = "new";
+            } else if (this.innerText.includes("genre") && this.innerText.includes("popular")) {
+                order = "popular";
+            } else {
+                order = this.innerText;
+            }
+
+            var genreNo = this.innerText.includes("genre") ? this.innerText : ""; // ボタンのテキストに "genre" が含まれている場合だけ genreNo を抽出
+
+            history.replaceState(null, null, window.location.pathname + "?order=" + order + "&genreNo=" + genreNo);
+
+            // history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
             getQuizList();
             
         });
@@ -27,9 +40,9 @@ window.addEventListener('load',function(){
 async function getQuizList() {
     params = new URLSearchParams(window.location.search);
     orderType = params.get("order");
-    // genreNo = params.get("genre");
+    genreNo = params.get("genreNo");
 
-    // index(login)?order=new&genre=1
+    // index?order=new&genreNo=1
     // 選択されているジャンルを取得
     // ジャンルが選択されていればパラメータに追加
 
