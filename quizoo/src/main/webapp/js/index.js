@@ -47,30 +47,6 @@ async function getQuizList() {
 
 }
 
-// クイズリストを更新するための関数を追加
-function updateQuizList(data) {
-    list = quizlistFactory(data);
-    list_box.replaceWith(list);
-    console.log("こちらも成功ですよ");
-}
-
-// getQuizListByGenre関数を修正
-function getQuizListByGenre(genreNo) {
-    // Ajax リクエストを修正
-    $.ajax({
-        type: "GET",
-        url: "/quizoo/quizlist",
-        data: { genreNo: genreNo }, // ジャンル情報を渡す
-        success: function (data) {
-            updateQuizList(data); // 受信したデータでupdateQuizList関数を呼び出す
-            console.log("成功ですよ");
-        },
-        error: function () {
-            console.error("ジャンル別のクイズの取得中にエラーが発生しました。");
-        }
-    });
-}
-
 async function quizlistFactory(quizList){
 
     var list = document.createElement('div');
