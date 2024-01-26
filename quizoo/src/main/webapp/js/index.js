@@ -9,20 +9,8 @@ window.addEventListener('load',function(){
     orderBtns = document.querySelectorAll(".order_btn");
     for(var btn of orderBtns){
         btn.addEventListener("click",function () {
-            var order = "";
-            if (this.innerText.includes("genre") && this.innerText.includes("new")) {
-                order = "new";
-            } else if (this.innerText.includes("genre") && this.innerText.includes("popular")) {
-                order = "popular";
-            } else {
-                order = this.innerText;
-            }
-
-            var genreNo = this.innerText.includes("genre") ? this.innerText : ""; // ボタンのテキストに "genre" が含まれている場合だけ genreNo を抽出
-
-            history.replaceState(null, null, window.location.pathname + "?order=" + order + "&genreNo=" + genreNo);
-
-            // history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
+            
+            history.replaceState(null,null, window.location.pathname + "?order=" + this.innerText);
             getQuizList();
             
         });

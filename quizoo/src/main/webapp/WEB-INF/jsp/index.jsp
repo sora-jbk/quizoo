@@ -23,7 +23,22 @@
 
 		<link rel="stylesheet" href="css/index.css">
 
+		<style>
+			#genreMenu {
+				font-size: 10px;
+				display: none;
+			}
 
+			#genreMenu ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+		
+			#genreMenu li {
+				margin: 0;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -75,19 +90,16 @@
 		<!--	下のヘッダー-->
 		<header class="secondary-header">
 		    <ul>
-		        <li><a class="order_btn" onclick="getQuizList()">new</a></li>
+		        <li><a class="order_btn" id="order_btn" onclick="getQuizList()">new</a></li>
 		        <li>
-		            <div class="dropdown">
-					    <button class="order_btn dropdown-toggle" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        genre
-					    </button>
-					    <div class="dropdown-menu" aria-labelledby="genreDropdown">
-					        <a class="dropdown-item" href="#" onclick="getQuizListByGenre(2)">音楽</a>
-					        <a class="dropdown-item" href="#" onclick="getQuizListByGenre(5)">雑学</a>
-					        <!-- 必要に応じて他のジャンルを追加 -->
-					    </div>
+					<a class="order_btn" id="order_btn" onclick="toggleGenreMenu()">genre</a>
+					<div id="genreMenu">
+						<ul>
+							<li><a class="order_btn" id="order_btn" data-genre-no="2" onclick="getQuizList()">音楽</a></li>
+							<li><a class="order_btn" id="order_btn" data-genre-no="5" onclick="getQuizList()">雑学</a></li>
+						</ul>
 					</div>
-		        </li>
+				</li>
 		        <li><a class="order_btn" onclick="getQuizList()">popular</a></li>
 		    </ul>
 		</header>
@@ -240,6 +252,14 @@
 				});
 			}
 		</script>
+
+		<script>
+			function toggleGenreMenu() {
+				var genreMenu = document.getElementById("genreMenu");
+				genreMenu.style.display = (genreMenu.style.display === "none" || genreMenu.style.display === "") ? "block" : "none";
+			}
+		</script>
+
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -256,10 +276,6 @@
 			crossorigin="anonymous"></script>
 		<script src="js/index.js"></script>
 		<script src="js/createQuiz.js"></script>
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
-
 
 	</body>
 
