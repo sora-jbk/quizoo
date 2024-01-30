@@ -9,7 +9,7 @@ body {
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 220px;
+	margin-top: 13%;
 
 }
 
@@ -30,11 +30,11 @@ img {
 /*-並び替えメニュー-*/
 .secondary-header {
 	z-index: 97;
-	top: 120px;
+	top: 13%;
 	background-color: #CDF5FD;
 	display: flex;
-	width: 100em;
-	height: 75px;
+	width: 100%;
+	height: 10%;
 	/* セカンダリーヘッダーの高さを設定 */
 	align-items: center;
 	/* 他のスタイルプロパティを追加 */
@@ -42,6 +42,7 @@ img {
 }
 
 .secondary-header a {
+	font-size: 2vw;
 	color: #000000;
 	position: relative;
 	display: inline-block;
@@ -91,10 +92,13 @@ img {
 
 /* 各クイズ */
 .quiz {
+	width: 70%;
 	position: relative;
-	padding: 30px 0px;
+	padding: 3%;
 	padding-bottom: 40px;
-	margin: 0px auto;
+	margin-top: 0;
+	margin-left: 15%;
+	margin-right: 15%;
 	margin-bottom: 40px;
 	border: 1px solid #333333;
 	border-radius: 80px;
@@ -103,9 +107,9 @@ img {
 }
 
 .quiz .title {
-	font-size: 30px;
+	font-size: 2vw;
 	margin-left: 100px;
-	font-family: cursive;
+	color: #000000;
 }
 
 .quiz .information {
@@ -129,7 +133,7 @@ img {
 }
 
 .ex {
-	color: rgba(255, 255, 255, 0.5);
+	color: #000000;
 	opacity: 0.8;
 }
 

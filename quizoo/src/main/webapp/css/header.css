@@ -7,45 +7,46 @@ header {
 	position: fixed;
 	background-color: #DBFAFD;
 	display: flex;
-	width: 100em;
-	height: 120px;
+	width: 100%;
+	height: 13%;
 	align-items: center;
 }
 
 .navbar {
-	height: 16px;
-	width: 1600px;
+	width: 100%;
 	padding: 0;
 }
 
 
 /*全画面共通ヘッダー画像*/
 .header-img {
-	margin-top: 15px;
-	margin-left: 15px;
-	width: 120px;
-	height: 85px;
+	margin-top: 0.5%;
+	margin-left: 1.2%;
+	width: 6.5%;
+	height: 6%;
 }
 
 .input-group {
+	margin-top: 1%;
 	width: 30%;
-	height: 50px;
+	height: 20%;
+	font-size: 20%;
 }
 
 .input-group-append svg{
-	height: 35px;
+	max-height: 60%;
 }
 
 /* -ハンバーガーメニュー- */
 
 /* ボタンのデザイン */
 .drawer__button {
-	margin-top: 15px;
-	margin-right: 40px;
+	margin-top: 1%;
+	margin-right: 1%;
 	position: relative;
 	padding: 0;
-	width: 60px;
-	height: 60px;
+	width: 10%;
+	height: 10%;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
@@ -249,6 +250,10 @@ section:nth-child(even) {
 	float: right;
 	transition: opacity .3s;
 	cursor: pointer;
+}
+
+.fa-times-circle:hover {
+	animation: pulse2 .3s 2;
 }
 
 .fa-times-circle:hover {
