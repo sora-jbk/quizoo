@@ -5,7 +5,7 @@
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
-	width: 100em;
+	width: 100%;
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
@@ -15,7 +15,7 @@ body {
 
 /*全画面共通a*/
 a {
-	font-size: 1.0em;
+	font-size: 1.0vw;
 	text-decoration: none;
 }
 
@@ -94,30 +94,34 @@ img {
 .quiz {
 	width: 70%;
 	position: relative;
-	padding: 3%;
-	padding-bottom: 40px;
+	padding: 2%;
+	padding-bottom: 4%;
 	margin-top: 0;
-	margin-left: 15%;
-	margin-right: 15%;
-	margin-bottom: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 2%;
 	border: 1px solid #333333;
 	border-radius: 80px;
 	background-color: rgb(215, 248, 215);
 	max-width: 70%;
+	height: 8%;
+	max-height: 8%;
 }
 
 .quiz .title {
 	font-size: 2vw;
-	margin-left: 100px;
+	margin-left: 10%;
 	color: #000000;
 }
 
 .quiz .information {
 	position: absolute;
+	font-size: 1vw;
 	z-index: 10;
 	width: 100%;
 	text-align: center !important;
-	margin-top: 10px;
+	margin-top: 1.2%;
+	margin-bottom: 0%
 }
 
 .quiz .information a {
@@ -130,6 +134,10 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.d-flex {
+	font-size: 1vw;
 }
 
 .ex {
@@ -151,8 +159,12 @@ img {
 }
 
 .btn {
-	margin-bottom: 40px;
-	margin-right: 40px;
+	margin-bottom: 3%;
+	margin-right: 3%;
+	width: 4%;
+	max-width: 4%;
+	height: 3%;
+	max-height: 4%;
 }
 
 /* 背景用*/
@@ -165,7 +177,7 @@ button.btn {
 	line-height: 1.5;
 	position: relative;
 	display: inline-block;
-	padding: 1rem 4rem;
+	padding: 1% 1%;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -337,7 +349,7 @@ a.btn-border-shadow--color2:before {
 	top: 50%;
 	left: 25px;
 	margin-top: -6px;
-	
+
 }
 
 .confirmation-btn:hover {
@@ -447,12 +459,15 @@ a.btn-border-shadow--color2:before {
 
 /*作問確認画面*/
 
-.quiz_title, .genre, .explanation{
+.quiz_title,
+.genre,
+.explanation {
 	width: 500px;
 }
 
 /*修正ボタン、投稿ボタン*/
-.correction, .post {
+.correction,
+.post {
 	display: inline-block;
 	width: 100px;
 	height: 30px;
@@ -470,10 +485,11 @@ a.btn-border-shadow--color2:before {
 	transition-duration: 0.3s;
 	font-weight: normal;
 	/* 位置 */
-/*	position: absolute;*/
+	/*	position: absolute;*/
 }
 
-.correction:before, .post:before {
+.correction:before,
+.post:before {
 	content: '';
 	width: 8px;
 	height: 8px;
@@ -483,10 +499,11 @@ a.btn-border-shadow--color2:before {
 	top: 50%;
 	left: 25px;
 	margin-top: -6px;
-	
+
 }
 
-.correction:hover, .post:hover {
+.correction:hover,
+.post:hover {
 	background: #fff;
 	/* 背景色 */
 	color: #4D9BC1;

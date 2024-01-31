@@ -68,10 +68,9 @@
 				作成者:<a class="author">たまい</a>ジャンル：<a class="genre">雑学</a>
 				作成日：<a class="create_time">2023/10/27</a> 正解率：<a class="raito">22.2%</a>
 			</div>
-
-
 		</div>
 	</div>
+	
 
 	<div class="fixed-bottom text-right">
 		<a href="#" id="myModal1-open"

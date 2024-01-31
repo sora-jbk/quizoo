@@ -4,11 +4,10 @@
 body {
 	font-family: 'Zen Maru Gothic', serif;
 	background-color: #fffaef;
-	width: 100em;
+	width: 100%;
 	/* ページの最大横幅を画面幅と同じに設定 */
 	margin: 0;
 	/* ページを水平中央に配置するために左右の余白を自動調整 */
-	margin-top: 100px;
 
 }
 
@@ -26,7 +25,7 @@ img {
 
 .profile {
 	padding: 20px;
-	margin-top: 120px;
+	margin-top: 12%;
 }
 
 /*プロフィール画像*/
