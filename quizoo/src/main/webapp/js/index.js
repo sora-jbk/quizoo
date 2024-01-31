@@ -52,37 +52,7 @@ window.addEventListener('load',function(){
     this.document.querySelector("#search_text").addEventListener("input",searchTitle);
     
     
-
-    // ハンバーガーボタンクリックで実行
-    document.querySelector(".drawer__button").addEventListener('click', function () {
-        this.classList.toggle("active");
-        document.querySelector(".drawer__nav").classList.toggle("active");
-    });
-
-    // ドロワーナビゲーションリンククリックで非アクティブ化
-    document.querySelectorAll(".drawer__nav__link").forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelector(".drawer__button").classList.remove("active");
-            document.querySelector(".drawer__nav").classList.remove("active");
-        });
-    });
-
-    // ページ内スクロール
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const speed = 400;
-            let href = this.getAttribute("href");
-            let target = document.querySelector(href === "#" || href === "" ? "html" : href);
-            let position = target.offsetTop;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-        });
-    });
+    updateQuizList();
 })
 
 async function searchTitle(){
@@ -202,19 +172,3 @@ function quizlistFactory(quizList){
     return list;
 }
 
-
-// チェックボックスを一つしか選ばせないようにする
-function limitCheckbox(clickedCheckbox) {
-    // クリックされたチェックボックスの親要素からグループを取得
-    var checkboxGroup = clickedCheckbox.closest('.clickedCheckbox');
-
-    // グループ内の他のチェックボックスを取得
-    var otherCheckboxes = checkboxGroup.querySelectorAll('.form-check-input');
-
-    // クリックされたチェックボックス以外の選択を解除
-    otherCheckboxes.forEach(function (checkbox) {
-        if (checkbox !== clickedCheckbox) {
-            checkbox.checked = false;
-        }
-    });
-}
