@@ -20,7 +20,6 @@ public class QuizListGetter extends Service {
 	static {
 		paramColMap.put("new", "create_time");
 		paramColMap.put("genre", "genre_no");//order by句に入るだけ
-		paramColMap.put("ganle", "genre_no");
 		paramColMap.put("popular", "total_participants");
 	}
 	@Override
@@ -44,7 +43,7 @@ public class QuizListGetter extends Service {
 		
 		
 		System.out.println("genreNo :"+genreNo);
-		System.out.println("orderOol:"+orderColumn);
+		System.out.println("orderCol:"+orderColumn);
 		System.out.println("searchStr:"+searchStr);
 		
 		QuizDao quizDao = new QuizDao();
@@ -58,7 +57,9 @@ public class QuizListGetter extends Service {
 		Gson gson = new Gson();
 		String result = gson.toJson(quizList);
 		
-		System.out.println(result);
+		
+	
+		System.out.println(result + "\n");
 		
 		out.println(result);
 
