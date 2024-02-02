@@ -19,7 +19,7 @@ public class QuizDao extends Dao{
 		
 		try {
 			connect();
-			ArrayList<String> params = new ArrayList<>();
+			
 			
 			String sql = 
 					"SELECT * FROM quiz "
@@ -27,8 +27,7 @@ public class QuizDao extends Dao{
 					+ "INNER JOIN nickname ON author_no = user_no"; 
 			
 			if(genreNo != null && !genreNo.isEmpty()) {
-				sql += " WHERE genre_no = ? ";
-				params.add(genreNo);
+				sql += " WHERE genre_no = " + genreNo ;
 			}
 			
 			if(searchStr != null && !searchStr.isEmpty()) {
@@ -37,25 +36,21 @@ public class QuizDao extends Dao{
 				}else {
 					sql += " WHERE ";
 				}
-				sql += " title LIKE ?";
-				params.add("%"+searchStr+"%");
+				sql += " title LIKE % " + searchStr + " %";
 			}
 			
 			if(orderColumn != null && !orderColumn.isEmpty()) {
-				sql += " ORDER BY ?";
-				params.add(orderColumn);
+				sql += " ORDER BY " + orderColumn + " DESC";
+				
 			}
-			
 			System.out.println(sql);
 			st = cn.prepareStatement(sql);
 			
 			
-			for(int i = 0 ; i < params.size() ; i++ ) {
-				st.setString(i+1, params.get(i));
-			}
-			
-			
+
+			System.out.println(sql);
 			rs = st.executeQuery();
+			
 			
 			while(rs.next()) {
 				//ResultSetからQuizBeanのプロパティを設定
@@ -74,8 +69,10 @@ public class QuizDao extends Dao{
 				quizbean.setAuthorNickname(rs.getString("nickname"));
 				
 				quizlist.add(quizbean);
+
 				
 			}
+			
 		} catch(SQLException e) {
 			try {
 				cn.rollback();
