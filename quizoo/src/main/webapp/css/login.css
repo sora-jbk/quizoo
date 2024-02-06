@@ -165,3 +165,7 @@ img {
 .none {
 	display: none;
 }
+
+.error {
+	color: #FF6868;
+}
