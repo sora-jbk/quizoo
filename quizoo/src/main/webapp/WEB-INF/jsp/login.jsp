@@ -63,6 +63,7 @@
 													<label for="login-userid"></label> <input type="text"
 														class="textbox" name="id" id="login-username"
 														placeholder="UserID" required>
+														<p id="login-errorMessage" class="error"></p>
 												</div>
 												<div class="form-group">
 													<label for="login-password"></label> <input type="password"
@@ -83,6 +84,7 @@
 													<label for="register-userid"></label> <input type="text"
 														class="textbox" name="id" id="register-userid"
 														placeholder="UserID" required>
+														<p id="signup-errorMessage" class="error"></p>
 												</div>
 												<div class="form-group">
 													<label for="register-nickname"></label> <input type="text"
