@@ -15,6 +15,12 @@ window.addEventListener("load", async () => {
 function sendData() {
 }
 
+function changeMessage(){
+	var bar = document.getElementById("snackbar");
+	bar.className = "show";
+  	setTimeout(function(){ bar.className = bar.className.replace("show", ""); }, 2000);
+}
+
 
 // 'submit' イベントのハンドラーを追加
 form.addEventListener("submit", async (event) => {
@@ -32,6 +38,7 @@ form.addEventListener("submit", async (event) => {
     })
 
     event.preventDefault();
-
+	
+	changeMessage();
     sendData();
 });

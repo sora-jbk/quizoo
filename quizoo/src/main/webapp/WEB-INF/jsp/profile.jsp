@@ -40,6 +40,8 @@
 				
 			<button type="submit" class="buttonRound">編集</button>
 		</form>
+		
+		<div class="snackbar" id="snackbar">変更中です...。</div>
 	</div>
 
 	<script
