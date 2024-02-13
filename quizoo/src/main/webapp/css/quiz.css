@@ -85,9 +85,9 @@ header {
 	padding: 7px;
 }
 
-/*今解いている問題の回答*/
+/*今解いている問題の強調*/
 .active_question {
-	color: #ff0000;
+	color: orchid;
 }
 
 /*回答完了ボタン*/
