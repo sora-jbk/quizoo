@@ -100,6 +100,13 @@ async function displayQuestionsList() {
 function displayQuestionDetails(questionNo) {
     if (questionNo === currentQuestionNo)  return;
     if (questionNo > quizAndQuestions['question'].length || questionNo < 0) return;
+
+    // 前に選択された質問から 'active_question' クラスを削除する
+    if (currentQuestionNo) {
+        const previousQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+        previousQuestionElement.classList.remove('active_question');
+    }
+
     let oldSentence = document.querySelector('#question-sentence');
 
     currentQuestionNo = questionNo;
@@ -115,6 +122,10 @@ function displayQuestionDetails(questionNo) {
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
     chengeSelected(selectedAnswers[currentQuestionNo - 1]);
+
+    // 現在選択されている質問に 'active_question' クラスを追加する
+    const currentQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+    currentQuestionElement.classList.add('active_question');
 }
 
 
