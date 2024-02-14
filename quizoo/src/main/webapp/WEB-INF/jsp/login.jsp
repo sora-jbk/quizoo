@@ -96,7 +96,9 @@
 													<label for="register-userid"></label> <input type="text"
 														class="textbox" name="id" id="register-userid"
 														placeholder="UserID" required>
-														<p id="signup-errorMessage" class="error"></p>
+														<p id="signup-errorMessage" class="error">
+															英数字および記号以外は使えません
+														</p>
 												</div>
 												<div class="form-group">
 													<label for="register-nickname"></label> <input type="text"
