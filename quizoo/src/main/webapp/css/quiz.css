@@ -157,6 +157,10 @@ a.btn--orange:hover {
 	background: #f56500;
 }
 
+.selected {
+	background-color: orchid;
+}
+
 @media screen and(max-width: 767px) {
 	.answers td {
 		width: 50%;
