@@ -124,7 +124,7 @@ function displayQuestionDetails(questionNo) {
     changeSelected(selectedAnswers[currentQuestionNo - 1]);
 
     // 現在選択されている質問に 'active_question' クラスを追加する
-    const currentQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+    var currentQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
     currentQuestionElement.classList.add('active_question');
 }
 
