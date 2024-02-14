@@ -60,15 +60,26 @@
 											role="tabpanel">
 											<form id="login-form" method="post" action="login">
 												<div class="form-group">
-													<label for="login-userid"></label> <input type="text"
-														class="textbox" name="id" id="login-username"
-														placeholder="UserID" required>
-														<p id="login-errorMessage" class="error"></p>
+													<label for="login-userid"></label>
+														<input type="text"
+																class="textbox"
+																name="id"
+																id="login-username"
+																placeholder="UserID"
+																required
+																inputmode="latin" >
+														<p id="login-errorMessage" class="error">
+															英数字および記号以外は使えません
+														</p>
 												</div>
 												<div class="form-group">
-													<label for="login-password"></label> <input type="password"
-														class="textbox" name="password" id="login-password"
-														placeholder="Password" required>
+													<label for="login-password"></label>
+														<input type="password"
+																class="textbox"
+																name="password"
+																id="login-password"
+																placeholder="Password"
+																required>
 												</div>
 												<div class="miss none" id="miss">
 													<p>IDまたはPASSWORDが違います</p>
@@ -78,6 +89,7 @@
 												</div>
 											</form>
 										</div>
+
 										<div class="tab-pane fade" id="Signup" role="tabpanel">
 											<form id="register-form" method="post" action="signup">
 												<div class="form-group">
@@ -117,13 +129,6 @@
 	</div>
 
 	<script src="js/login.js"></script>
-
-
-
-
-
-
-
 </body>
 
 </html>
