@@ -35,7 +35,7 @@ window.addEventListener('load', async function () {
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
             choiceBtnClickHandler(i);
-            chengeSelected(i);
+            changeSelected(i);
         });
     }
 
@@ -121,7 +121,7 @@ function displayQuestionDetails(questionNo) {
     }
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
     
-    chengeSelected(selectedAnswers[currentQuestionNo - 1]);
+    changeSelected(selectedAnswers[currentQuestionNo - 1]);
 
     // 現在選択されている質問に 'active_question' クラスを追加する
     const currentQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
@@ -183,8 +183,7 @@ function createChoiseNodes(questionNo) {
 }
 
 
-
-function chengeSelected(selectedNo = 0) {
+function changeSelected(selectedNo = 0) {
     for(let i = 0; i < answerBtns.length; i++) {
         if(selectedNo === i){
             answerBtns[i].classList.add('selected');
