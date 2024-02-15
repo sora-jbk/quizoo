@@ -4,6 +4,7 @@
 var list_box;
 
 window.addEventListener('load',async function(){
+	
     genres = await fetch("/quizoo/genres");
 
     genres = await genres.json();
@@ -87,7 +88,11 @@ async function searchTitle(){
     updateQuizList();
 }
 
-async function updateQuizList() {
+async function updateQuizList() {	
+
+
+    setTimeout(fadeOutLoader, 3000);
+    
     quizList = await getQuizList();
     var list;
     
@@ -220,4 +225,14 @@ function filterGenre(genreNo) {
     var genrePulldown = document.querySelector("#genre_selector");
     genrePulldown.value = genreNo;
     updateQuizList();
+}
+
+    // ローダーをフェードアウトする関数
+function fadeOutLoader() {
+    // ローダーの要素にフェードアウト用のクラスを追加
+    loaderSection.classList.add('fadeOut');
+    // 2秒後にローダーの要素を非表示にする
+    setTimeout(function() {
+        document.querySelector('#loader').style.display = 'none';
+    }, 3000);
 }
