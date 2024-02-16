@@ -58,7 +58,7 @@
 	<!--　クイズリスト  -->
 	<div class="quiz_list mx-auto" id="quiz_list">
 		<div class="loader" id="loader">
-			<p class="txt">ローディング中</p>
+			<p class="txt">ローディング中...</p>
 		</div>
 
 	</div>
