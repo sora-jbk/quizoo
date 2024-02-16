@@ -164,6 +164,10 @@ function createChoiseNodes(questionNo) {
         button.setAttribute('class','btn btn--orange');
         button.setAttribute('id','answer-btn');
 
+        if(selectedAnswers[currentQuestionNo - 1] === i){
+            button.classList.add('selected');
+        }
+
         td.appendChild(button);
 
         tr.appendChild(td.cloneNode(true));
