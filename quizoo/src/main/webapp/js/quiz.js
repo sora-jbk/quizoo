@@ -103,7 +103,7 @@ function displayQuestionDetails(questionNo) {
 
     // 前に選択された質問から 'active_question' クラスを削除する
     if (currentQuestionNo) {
-        const previousQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+        var previousQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
         previousQuestionElement.classList.remove('active_question');
     }
 
