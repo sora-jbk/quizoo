@@ -211,7 +211,7 @@ public class UserInfoDao extends Dao {
 	
 	public String selectNickname(int userNo) throws ResourceException {
 		PreparedStatement st = null;
-		String nickname;
+		String nickname = null; 
 		try {
 			connect();
 			
