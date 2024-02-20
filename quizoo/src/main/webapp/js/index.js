@@ -10,7 +10,6 @@ window.addEventListener('load',async function(){
         if(!genres.ok){
             throw new Error(genres.statusText);
         }
-        console.log(genres.headers.get("Content-Type"));
         genres = await genres.json();
     }catch(e){
         // エラーが発生しました
