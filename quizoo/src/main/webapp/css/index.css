@@ -63,6 +63,8 @@ button {
     border-radius: 80px;
     background-color: #0000;
     transition: .2s ease-in-out;
+	box-shadow: 3px 3px 2px #00000070;
+	background-color: #e3f1e2;
 	opacity: 0;
 }
 
@@ -71,41 +73,10 @@ button {
 }
 
 .quiz:hover{
-	padding:13px 7px 7px 13px;
+	/* margin: 3px 17px 17px 23px; */
+	box-shadow: 3px 3px 2px #0000;
 }
 
-
-.quiz::after{
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	border-radius: 80px;
-	transition:.2s ease-in-out;
-	background-color: #d7f8d7;
-	z-index:-1;
-}
-
-.quiz::before{
-    background-color: #96aa96;
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 3px;
-    left: 3px;
-    position: absolute;
-    z-index: -2;
-    border-radius: 80px;
-    transition: .2s ease-in-out;
-}	
-
-.quiz:hover::after{
-	top:3px;
-	left: 3px;
-}
 
 .quiz .title {
 	white-space: nowrap;
@@ -609,6 +580,12 @@ button {
 .author, .genre {
 	position: relative;
 	z-index: 1;
+	text-decoration: none;
+}
+
+.author:hover, .genre:hover {
+	background-color: #0000001e;
+	border-radius: 0.25rem;
 }
 
 
@@ -632,22 +609,6 @@ button {
 .close_btn::after {
 	transform: translate(-50%, -50%) rotate(-45deg);
 }
-
-/*.message {*/
-/*  position: fixed;*/
-/*  bottom: 20px;*/
-/*  left: 50%;*/
-/*  transform: translateX(-50%);*/
-/*  padding: 10px 20px;*/
-/*  border-radius: 5px;*/
-/*  opacity: 0;*/
-/*  transition: opacity 0.3s ease-in-out;*/
-/*  background-color: #f0f8ff;*/
-/*}*/
-
-/*.message.show {*/
-/*  opacity: 1;*/
-/*}*/
 
 .completion-snackbar {
   visibility: hidden;

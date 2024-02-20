@@ -3,6 +3,13 @@
 */
 var list_box;
 
+// ブラウザバックを検知
+window.addEventListener('popstate',function(){
+    if(this.document.referrer.includes("quizoo/index")){
+        updateQuizList();
+    }
+})
+
 window.addEventListener('load',async function(){
 
     try{
