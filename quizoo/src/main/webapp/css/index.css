@@ -604,22 +604,6 @@ button {
 	transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/*.message {*/
-/*  position: fixed;*/
-/*  bottom: 20px;*/
-/*  left: 50%;*/
-/*  transform: translateX(-50%);*/
-/*  padding: 10px 20px;*/
-/*  border-radius: 5px;*/
-/*  opacity: 0;*/
-/*  transition: opacity 0.3s ease-in-out;*/
-/*  background-color: #f0f8ff;*/
-/*}*/
-
-/*.message.show {*/
-/*  opacity: 1;*/
-/*}*/
-
 .completion-snackbar {
   visibility: hidden;
   min-width: 250px;
