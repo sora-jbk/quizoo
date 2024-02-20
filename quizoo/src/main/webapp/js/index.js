@@ -10,7 +10,6 @@ window.addEventListener('load',async function(){
         if(!genres.ok){
             throw new Error(genres.statusText);
         }
-        console.log(genres.headers.get("Content-Type"));
         genres = await genres.json();
     }catch(e){
         // エラーが発生しました
@@ -95,7 +94,7 @@ async function updateQuizList() {
     }
 
     quizList = await getQuizList();
-    var list;
+    let list;
     
     if(!quizList){
         var nodata = document.createElement('div');
@@ -108,9 +107,23 @@ async function updateQuizList() {
         list = quizlistFactory(quizList);
     }
     
-    list_box.replaceWith(list); 
-    list_box = list;
-
+    list_box = document.querySelector("#quiz_list").cloneNode(false);
+    
+    for(var i = 0 ; i < list.length ; i++){
+        list_box.appendChild(list[i]);
+        list[i].style.transitionDelay = i * 0.025 + 's';
+    }
+    
+    document.querySelector("#quiz_list").replaceWith(list_box);
+    
+    
+    setTimeout(() => {
+        list = document.querySelectorAll(".quiz");
+        
+        for(var i = 0 ; i < list.length ; i++){
+            list[i].classList.add("show");
+        }
+    },25);
 
 }
 
@@ -134,9 +147,7 @@ async function getQuizList() {
 }
 
 function quizlistFactory(quizList){
-    var list = document.createElement('div');
-    list.setAttribute('class','quiz_list');
-    list.setAttribute('id','quiz_list');
+    var list = [];
     for(quiz of quizList){
         box = document.createElement('div');
         box.setAttribute('class','quiz');
@@ -197,7 +208,7 @@ function quizlistFactory(quizList){
         
         box.append(info);
 
-        list.appendChild(box);
+        list.push(box);
 
     }
 
