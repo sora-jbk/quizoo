@@ -63,6 +63,11 @@ button {
     border-radius: 80px;
     background-color: #0000;
     transition: .2s ease-in-out;
+	opacity: 0;
+}
+
+.quiz.show{
+	opacity: 1;
 }
 
 .quiz:hover{
