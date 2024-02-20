@@ -580,6 +580,12 @@ button {
 .author, .genre {
 	position: relative;
 	z-index: 1;
+	text-decoration: none;
+}
+
+.author:hover, .genre:hover {
+	background-color: #0000001e;
+	border-radius: 0.25rem;
 }
 
 
