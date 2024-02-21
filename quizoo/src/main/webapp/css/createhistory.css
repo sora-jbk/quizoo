@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/*全画面共通body*/
+body {
+	font-family: 'Zen Maru Gothic', serif;
+	background-color: #fffaef;
+	width: 100%;
+	/* ページの最大横幅を画面幅と同じに設定 */
+	margin: 0;
+	/* ページを水平中央に配置するために左右の余白を自動調整 */
+	margin-top: 10%;
+
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+/*全画面共通a*/
+a {
+	font-size: 1.0vw;
+	text-decoration: none;
+}
+
+.profile {
+	padding: 15%;
+	margin-top: 10%;
+}
+
+
+/* スタイルを適用するための親要素 */
+.custom-file-input {
+	position: relative;
+	display: inline-block;
+}
+
+/* 実際のinputは非表示 */
+.custom-file-input input {
+	display: none;
+}
+
+/* カスタムデザインのスタイル */
+.custom-file-input label {
+	display: inline-block;
+	padding: 10px 15px;
+/*	background-color: #3498db;*/
+	color: #0000ff;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/*.quiz_list {*/
+/*	padding: 10%;*/
+/*}*/
+
+/* クイズ一覧 */
+.quiz_list {
+	margin-top: 200px;
+	margin-bottom: 0px;
+	width: 100%;
+}
+
+/* 各クイズ */
+.quiz {
+	position: relative;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin-bottom: 5%;
+	margin-left: 20%;
+	margin-right: 20%;
+	border: 1px solid #333333;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	width: 60%;
+	height: 10%;
+}
+
+.quiz .title {
+	font-size: 2vw;
+	margin-left: 5%;
+	font-family: cursive;
+}
+
+.quiz .explanation {
+    font-size: 1vw;
+    font-family: cursive;
+}
+
+.quiz .information {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	text-align: center !important;
+	margin-top: 10px;
+}
+
+.quiz .information a {
+	margin: 0 0.5rem;
+}
+
+/*ゴミ箱*/
+.garbage_can {
+	margin: 3% 5% 0 0;
+    text-align: right;
+    color: #000000;
+	font-size: 24px;
+}
+
+/*モーダル*/
+
+/*モーダル内ボーダー消す*/
+.modal {
+	--bs-modal-footer-border-width: none;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-footer {
+	justify-content: center;
+}
+
+/*1つ目のモーダル*/
+
+/*backボタン*/
+.no-btn {
+	width: 150px;
+	height: 70px;
+}
+
+/*endボタン*/
+.yes-btn {
+	width: 150px;
+	height: 70px;
+}

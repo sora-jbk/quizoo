@@ -1,0 +1,128 @@
+header{
+	font-family: 'Zen Maru Gothic', serif;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: #daeef0;
+}
+
+header .index-link{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+header .index-link img{
+	width: 100%;
+}
+
+header .index-link a{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.side-menu{
+	display: none;
+    position: fixed;
+    z-index:1000;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: .5s ease-in-out;
+    background-color: #00000000;
+}
+
+.side-menu.show{
+    background-color: #00000057;
+}
+
+.side-menu ul{
+    position: fixed;
+    right: -310px;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #c0c0c0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: .5s ease-in-out;
+}
+
+.side-menu li {
+    padding: 15px 0 15px 15px;
+    border-bottom: solid 1px #888;
+    position: relative;
+}
+
+.side-menu p{
+	font-size: 1.25rem;
+    border:none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu li a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	
+}
+
+.side-menu li a:hover{
+	background-color: #ffffff33;
+}
+
+
+.side-menu.show ul{
+	right: 0;
+}
+
+
+header .search-txtbox{
+    width: calc(100% - 700px);
+    min-width: 250px;
+    height: 30px;
+    margin: 34px auto;
+    padding: 0;
+    border: solid 1px #bbb6ab;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+header .search-txtbox:focus{
+	border: solid 2px #bbb6ab;
+}
+
+header .side-menu-drawer{
+	background-color: #daeef0;
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+header .side-menu-drawer span{ 
+    display: block;
+    width: 60%;
+    content: "";
+    border-bottom: 2px solid #000;
+    height: 0px;
+    position: relative;
+    padding: 0 10%;
+    left: 0%;
+    margin: 17% 10%;
+}

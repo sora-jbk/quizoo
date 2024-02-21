@@ -1,254 +1,135 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-		pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
-	<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>index</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
 		<script src="https://kit.fontawesome.com/44f79b56c2.js" crossorigin="anonymous"></script>
-		<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-		<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-		<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet"
+		href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</head>
 
-		<link rel="stylesheet" href="css/index.css">
+<body>
+    <!-- 上のヘッダー -->
+    <%@ include file="header.jsp" %>
+    <!-- 下のヘッダー-->
+    <header class="order-menu">
+		<a id="order_btn">new</a>
+		<a id="order_btn">popular</a>
+			<select id="genre_selector" class="genre_selector">
+			</select>
+    </header>
+    <!-- クイズリスト  -->
+    <div class="quiz_list" id="quiz_list">
+        <div class="quiz">
+            <div class="width row">
+                <div class="title col">
+                    <p>常識クイズ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-bottom text-right create-quiz-btn">
+        <a id="create-quiz-open" class="create-quiz-open" data-slide-index="1"> 
+        	<i class="fa-solid fa-pen"></i>
+        </a>
+    </div>
+	<!-- トップに戻るボタン -->
 
-
-	</head>
-
-	<body>
-		<!--	上のヘッダー-->
-		<header>
-			<nav class="navbar navbar-light fixed-top">
-				<div class="header-img">
-					<img src="img/quizoo_nobackground.png" alt="quizoo">
-				</div>
-				<div class="input-group" style="width: 30%;">
-					<input type="text" class="form-control" placeholder="Search">
-					<div class="input-group-append">
-						<span class="input-group-text">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-								<path
-									d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z">
-								</path>
-							</svg>
-						</span>
-					</div>
-				</div>
-				<!-- ハンバーガーメニュー -->
-				<buttom class="drawer__button">
-					<span></span>
-					<span></span>
-					<span></span>
-				</buttom>
-				<nav class="drawer__nav">
-					<div class="drawer__nav__inner">
-						<ul class="drawer__nav__menu">
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">プロフィール編集</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">作成履歴</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">スコア詳細</a>
-							</li>
-							<li class="drawer__nav__item">
-								<a class="drawer__nav__link" href="#">ログアウト</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-
-			</nav>
-		</header>
-		<!--	下のヘッダー-->
-		<header class="secondary-header">
-			<ul>
-				<li><a class="order_btn">new</a></li>
-				<li><a class="order_btn">genre</a></li>
-				<li><a class="order_btn">popular</a></li>
-			</ul>
-
-		</header>
-
-		<div class="quiz_list">
-			<div class="box">
-				<div class="width row">
-					<div class="title col">常識クイズ</div>
-					<div class="d-flex align-items-center col">常識に関するクイズです</div>
-				</div>
-				<div class="information text-right">作成者：<a class="author">たまい</a> 作成日：<a class="create_time">2023/10/27</a> ジャンル：<a class="genre">雑学</a> 正解率：<a class="raito">22.2%</a></div>
-
-			</div>
-		</div>
-
-		<div class="fixed-bottom text-right">
-			<a href="#" id="myModal1-open" class="btn btn-border-shadow btn-border-shadow--color2" data-slide-index="1">
-				<i class="fa-solid fa-pen"></i>
-			</a>
-		</div>
-
-
-		<!--作問ポップアップ-->
-		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-			aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-lg create-modal-wrap " role="document">
-				<div class="modal-content create-modal-content ">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">問題を作成する</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body create-modal-body">
-						<div id="questions-wrap" class="questions-wrap">
-							<div class="question1">
-								<div class="question-overview">
-									<h6>問題文の最初...</h6>
-								</div>
-							</div>
-						</div>
-							<button id="add-question-btn" type="button" class="add-question-btn">＋</button>
-						<div id="question" class="question-wrap">
-							<div id="create-question-text" class="create-question-text">
-								<textarea></textarea>
-							</div>
-							<div class="create-question-choises">
-								<fieldset>
-									<div class="choise-wrap">
-										<input type="radio" id="choise1" name="choise" />
-										<label id="choise-label1" for="choise1" ><input type="text" name="choise-text1" /></label>
-									</div>
-									<div class="choise-wrap">
-										<input type="radio" id="choise2" name="choise" />
-										<label id="choise-label2" for="choise3" ><input type="text" name="choise-text2" /></label>
-									</div>
-									<div class="choise-wrap">
-										<input type="radio" id="choise3" name="choise" />
-										<label id="choise-label3" for="choise3" ><input type="text" name="choise-text3" /></label>
-									</div>
-									<div class="choise-wrap">
-										<input type="radio" id="choise4" name="choise" />
-										<label id="choise-label3" for="choise4" ><input type="text" name="choise-text4" /></label>
-									</div>
-								</fieldset>
-							</div>
-						</div>
-						<button type="button" id="create-btn-primary" class="btn btn-primary btn-circle create-btn-primary ">＋</button>
-					</div>
+	<div class="go-top-btn" id="go-top-btn">
+		<a href="#top"></a>
+		<i class="up-arrow fa-solid fa-arrow-up"></i>
+	</div>
+	<!--作問ポップアップ-->
+	<div class="create-quiz-modal-back" id="create-quiz-modal-back">
+		<div class="create-quiz-modal">
+			<span class="modal-close-btn" id="create-close-btn"></span>
+			<div class="stored-question" id="stored-question">
+				<div class="add-question" id="add-question">
+					<span class="plus-icon"></span><span>問題を追加する</span>
 				</div>
 			</div>
-		</div>
-
-		<div id="post-roading" class="post-roading-back">
-			<h1 class="post-roading-msg">問題を投稿しています</h1>
-			<div class="post-roading-anime"></div>
-		</div>
-
-
-		<!--　作問確認ポップアップ　-->
-
-		<!-- Modal -->
-		<div class="modal fade confirm-modal" id="comfirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog confirm-modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-body">
-						<h5>以下の内容で投稿します</h5>
+			<div class="question-editor" id="question-editor">
+				<textarea type="text" name="question-text" id="question-text"
+					class="question-text" placeholder="問題文"></textarea>
+				<fieldset class="choices" id="choices">
+					<div class="choice">
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text" class="choice-text"
+							placeholder="選択肢1">
 					</div>
-					<div id="quiz-metadata" >
-						<div id="quiz-title">
-							<h6>タイトルを入力</h6>
-							<input type="text" name="title" />
-						</div>
-						<select name="genre">
-						</select>
-						<div id="explanation">
-							<input type="text" name="explanation"/>
-						</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text" class="choice-text"
+							placeholder="選択肢2">
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">修正する</button>
-						<button type="button" id="confirm-btn-primary" class="btn btn-primary">投稿する</button>
+					<div class="choice">
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
+						 -->
+						<input type="text" id="choice-text" class="choice-text"
+							placeholder="選択肢3">
 					</div>
-				</div>
+					<div class="choice">
+						<input type="radio" name="choice" id="choice-radio"><!-- 隙間をなくすためのコメント
+						 --><input type="text" id="choice-text" class="choice-text"
+							placeholder="選択肢4">
+					</div>
+				</fieldset>
+			</div>
+			<div class="submit-quiz-btn" id="submit-quiz-btn">
+				<i class="next-btn fa-solid fa-arrow-right"></i>
 			</div>
 		</div>
-
-
-		<!--	ハンバーガー -->
-		<script>
-			$(function () {
-				// ハンバーガーボタンクリックで実行
-				$(".drawer__button").click(function () {
-					$(this).toggleClass("active");
-					$(".drawer__nav").toggleClass("active");
-				});
-
-				$(".drawer__nav__link").click(function () {
-					$(".drawer__button").removeClass("active");
-					$(".drawer__nav").removeClass("active");
-				});
-
-				// ページ内スクロール
-				$('a[href^="#"]').click(function () {
-					const speed = 400;
-					let href = $(this).attr("href");
-					let target = $(href == "#" || href == "" ? "html" : href);
-					let position = target.offset().top;
-					$("body,html").animate({scrollTop: position}, speed, "swing");
-					return false;
-				});
-				// function
-			});
-		</script>
-
-		<!--	チェックボックスを一つしか選ばせないようにする-->
-		<script>
-			function limitCheckbox(clickedCheckbox) {
-				// クリックされたチェックボックスの親要素からグループを取得
-				var checkboxGroup = clickedCheckbox.closest('.clickedCheckbox');
-
-				// グループ内の他のチェックボックスを取得
-				var otherCheckboxes = checkboxGroup.querySelectorAll('.form-check-input');
-
-				// クリックされたチェックボックス以外の選択を解除
-				otherCheckboxes.forEach(function (checkbox) {
-					if (checkbox !== clickedCheckbox) {
-						checkbox.checked = false;
-					}
-				});
-			}
-		</script>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
-		<script src="js/index.js"></script>
-		<script src="js/createQuiz.js"></script>
+	</div>
 
 
 
-	</body>
+	<!--　作問確認ポップアップ　-->
+	<div class="metadata-modal-back" id="metadata-modal-back">
+		<div class="metadata-modal">
+			<span class="modal-close-btn" id="metadata-close-btn"></span>
+			<h5>以下の内容で投稿します</h5>
+			<div id="quiz-metadata" class="quiz-metadata">
+				<input type="text" name="title" id="post-title" placeholder="タイトル">
+				<select name="genre" id="post-genres">
+				</select> <input type="text" name="explanation" id="post-explanation"
+					placeholder="説明">
+			</div>
+			<div class="metadata-buttons">
+				<button class="cancel-quiz-btn" id="cancel-quiz-btn">
+					<i class="fa-solid fa-arrow-rotate-left"></i> 修正
+				</button>
+				<button class="post-quiz-btn" id="post-quiz-btn">
+					<i class="fa-solid fa-check"></i> 投稿
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<div class="posting-snackbar" id="posting-snackbar">投稿中です...。</div>
+	
+	<div class="completion-snackbar" id="completion-snackbar">投稿完了しました！</div>
 
-	</html>
+
+
+    
+    <script src="js/index.js"></script>
+    <script src="js/createQuiz.js"></script>
+</body>
+
+</html>

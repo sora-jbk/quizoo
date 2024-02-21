@@ -1,61 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>quizoo</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>quizoo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/notfound.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/unexpected.jsp</location>
+	</error-page>
+
 	<filter>
-     <filter-name>loginFilter</filter-name>
-     <filter-class>web.LoginFilter</filter-class>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>web.LoginFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
-     <filter-name>loginFilter</filter-name>
-     <url-pattern>/index</url-pattern>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/index</url-pattern>
 	</filter-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>default</servlet-name>
-  	<url-pattern>*.css</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>default</servlet-name>
-  	<url-pattern>*.png</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>default</servlet-name>
-  	<url-pattern>*.js</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>login-page</servlet-name>
-  	<jsp-file>/WEB-INF/jsp/login.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>login-page</servlet-name>
-  	<url-pattern>/login-page</url-pattern>
-  </servlet-mapping>
-  <servlet>
-  	<servlet-name>index-page</servlet-name>
-  	<jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>index-page</servlet-name>
-  	<url-pattern>/index</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>front</servlet-name>
-  	<servlet-class>web.FrontServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>front</servlet-name>
-  	<url-pattern>/</url-pattern>
-  </servlet-mapping>
+
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/answer</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/profile</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/createhistory</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/score</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/othersprofile</url-pattern>
+	</filter-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>login-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login-page</servlet-name>
+		<url-pattern>/login-page</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>index-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>index-page</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>answer-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/quiz.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>answer-page</servlet-name>
+		<url-pattern>/answer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>createhistory-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/createhistory.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>createhistory-page</servlet-name>
+		<url-pattern>/createhistory</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>profile-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/profile.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profile-page</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>score-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/score.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>score-page</servlet-name>
+		<url-pattern>/score</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>othersprofile-page</servlet-name>
+		<jsp-file>/WEB-INF/jsp/othersprofile.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>othersprofile-page</servlet-name>
+		<url-pattern>/othersprofile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>front</servlet-name>
+		<servlet-class>web.FrontServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>front</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 </web-app>

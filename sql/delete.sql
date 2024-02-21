@@ -1,26 +1,27 @@
-/*�g���K�[�̍폜*/
+SET NAMES utf8;
+/*トリガーの削除*/
 DROP TRIGGER calculate_rating;
 DROP TRIGGER question_count_AND_correct_rate;
 
-/* �O���L�[�����e�[�u�����ɍ폜 */
+/* 外部キーを持つテーブルを先に削除 */
 DROP TABLE IF EXISTS answerhistory;
 DROP TABLE IF EXISTS question;
 DROP TABLE IF EXISTS nickname;
 
-/* �O���L�[�������Q�Ɛ�ƂȂ�e�[�u�����폜 */
+/* 外部キーを持ちつつ参照先となるテーブルを削除 */
 DROP TABLE IF EXISTS quiz;
 
 
-/* �O���L�[�̎Q�Ɛ�ƂȂ�e�[�u�������ɍ폜 */
+/* 外部キーの参照先となるテーブルを次に削除 */
 DROP TABLE IF EXISTS userinfo;
 DROP TABLE IF EXISTS genre;
 
-/* �f�[�^�x�[�X���̂��폜 */
+/* データベース自体を削除 */
 DROP DATABASE IF EXISTS quizoo;
 
-/* ���[�U�[���폜 */
+/* ユーザーを削除 */
 DROP USER IF EXISTS 'quizoo_admin'@'localhost';
 DROP USER IF EXISTS 'quizoo_app'@'%';
 
-/* ���������t���b�V�� */
+/* 権限をリフレッシュ */
 FLUSH PRIVILEGES;

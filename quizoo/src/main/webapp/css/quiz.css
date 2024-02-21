@@ -1,0 +1,355 @@
+@charset "UTF-8";
+
+html {
+	width: 100%;
+}
+
+/*全画面共通body*/
+body {
+	font-family: 'Zen Maru Gothic', serif;
+	background-color: #fffaef;
+	width: 100%;
+	max-width: 100%;
+	/* ページの最大横幅を画面幅と同じに設定 */
+	margin: 0;
+	/* ページを水平中央に配置するために左右の余白を自動調整 */
+
+}
+
+/*全画面共通a*/
+a {
+	font-size: 1.0em;
+	text-decoration: none;
+}
+
+/*全画面共通img*/
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+/*全画面共通header*/
+header {
+	background-color: #DBFAFD;
+	display: flex;
+	width: 100%;
+	height: 120px;
+	align-items: center;
+	position: fixed;
+	/* スクロールしてもヘッダーが固定 */
+	top: 0;
+	z-index: 1000;
+	/* ヘッダーが他の要素の上に表示されるように */
+}
+
+/*全画面共通ヘッダー画像*/
+.header-img {
+	position: fixed;
+	padding: 4px;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 130px;
+	top: 0;
+}
+
+
+/*quiz.html*/
+.container {
+	padding: 0px;
+	padding-top: 120px;
+	margin-left: 0px;
+	margin-right: 0px;
+	max-width: none;
+}
+
+/*クイズ回答履歴*/
+.quizlist {
+	background-color: #d3d3d3;
+	min-height: 100vh;
+	display: flex;
+	justify-content: space-between;
+}
+
+.d-flex {
+	width: 20%;
+	height: 100%;
+	padding: 20px;
+	vertical-align: text-top;
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+}
+
+/*回答履歴*/
+.d-flex a {
+	padding: 7px;
+}
+
+/*今解いている問題の回答*/
+.active_question {
+	color: #ff0000;
+}
+
+/*回答完了ボタン*/
+.close-btn {
+	color: #404040;
+	background-color: #ffa500;
+	width: 270px;
+	height: 40px;
+	border: none;
+	border-radius: 5%;
+}
+
+/*回答する欄*/
+.Problem-statement {
+	background-color: #fffaef;
+	width: 80%;
+	/* 二分割するために適切な幅を設定 */
+	box-sizing: border-box;
+	/* ボーダーボックスモデルを使用して、borderの幅も考慮 */
+	padding: 30px;
+	/* 適切な余白を追加 */
+}
+
+/*問題文を囲う枠*/
+.border {
+	display: block;
+	padding: 20px;
+	width: 1200px;
+	height: 250px;
+	overflow: auto;
+	/* はみ出た内容をスクロールで表示 */
+}
+
+/*問題文*/
+.sentence {
+	font-size: 20px;
+	overflow: hidden;
+	/* はみ出た部分を非表示にする */
+}
+
+/*解答群*/
+.answer {
+	margin-top: 3%;
+}
+
+/*選択肢*/
+.choice {
+	width: 280px;
+	font-size: 35px;
+	padding: 20px;
+	overflow-wrap: normal;
+}
+
+/*選択肢ボタン*/
+.btn--orange,
+a.btn--orange {
+	color: #fff;
+	background-color: #eb6100;
+	width: 200px;
+	height: 70px;
+	font-size: 30px;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+	color: #fff;
+	background: #f56500;
+}
+
+@media screen and(max-width: 767px) {
+	.answers td {
+		width: 50%;
+		box-sizing: border-box;
+	}
+}
+
+/*回答完了モーダル*/
+
+/*共通*/
+
+/*モーダル内ボーダー消す*/
+.modal {
+	--bs-modal-footer-border-width: none;
+}
+
+.modal-header {
+	border-bottom: none;
+}
+
+.modal-footer {
+	justify-content: center;
+}
+
+/*1つ目のモーダル*/
+
+.fonfirm-msg {
+	text-align: center;
+}
+
+/*2つ目のモーダル*/
+
+
+/*結果出力*/
+.question-result {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.question-result p {
+	font-size: 20px;
+	display: block;
+	margin-bottom: 5px;
+	/* 必要に応じてマージンを追加 */
+	flex: 0 0 calc(50% - 10px);
+	/* 2列になるように設定 */
+	margin: 5px;
+}
+
+.score {
+	padding-top: 20px;
+	margin-right: 25px;
+}
+
+.score>h3 {
+	margin-right: 20px;
+}
+
+.close-btn {
+	font-size: 30px;
+	width: 150px;
+	height: 70px;
+}
+
+
+
+/* 自作確認モーダル */
+.confirm-modal{
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0006;
+    z-index: 1100;
+}
+
+.confirm-modal-body{
+    position: absolute;
+    width: 40vw;
+    left: 30vw;
+    height: 20vh;
+    top: 40vh;
+    background-color: #fff;
+    border-radius: 10px;
+	padding: 3vh 5vw;
+}
+
+.confirm-choices{
+	text-align: center;
+}
+
+.cofirm-msg{
+	text-align: center;
+}
+
+.confirm-modal button{
+    height: 4em;
+    width: 7em;
+    max-width: 100%;
+    border-radius: 1em;
+}
+
+.result-modal{
+	display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #0006;
+    z-index: 1100;
+    margin: auto;
+}
+
+.result-modal-body{
+    position: absolute;
+    display: block;
+    grid-template-rows: 50px repeat(2,5fr);
+    grid-template-columns: 1fr 3fr;
+    width: 50vw;
+    left: 25vw;
+    height: 50vh;
+    top: 25vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.result-modal .title{
+	margin-top: 1%;
+    margin-left: 5%;
+    font-size: 3.5em;
+    text-align: left;
+    padding: 0;
+}
+
+
+.result-modal .result-list {
+    width: 80%;
+    height: calc(96% - 8em);
+    margin-top: 3%;
+    margin-left: 10%;
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 要素がwidthの限界値まで来たら改行 */
+}
+
+.result-modal .result-list > div {
+    font-size: 2em;
+    margin-left: 2em;
+    flex: 0 0 auto; /* 要素が自動的に幅を調整する */
+}
+
+.result-modal .result-rate {
+    position: absolute;
+    top: 7%;
+    right: 10%;
+    font-size: 2em;
+    border-radius: 0 0 10px 10px;
+    height: 2em;
+}
+.closeButton{
+	margin-left: 40%;
+    position: absolute;
+    bottom: 10%;
+	cursor: pointer;
+}
+
+.closeButton:hover {
+	color: #ff4500;
+}
+
+.close-btn {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 80%;
+	padding: 2%;
+	margin: auto;
+	font-weight: bold;
+	border: 2px solid #ffa500;
+	background: #ffa500;
+	color: #fff;
+	transition: 0.5s;
+}
+
+.close-btn:hover {
+	color: #ffa500;
+	background: #fff;
+}
+
+/*.resultborder {*/
+/*	border-bottom: solid;*/
+/*	width: 100%;*/
+/*}*/

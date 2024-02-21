@@ -1,6 +1,7 @@
 package db.bean;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class QuestionBean implements Serializable {
 	private int quizId;
@@ -90,5 +91,17 @@ public class QuestionBean implements Serializable {
 	public void setJudge(boolean[] judge) {
 		this.judge = judge;
 	}
-	
+	public String toString() {
+	    return "QuestionBean{" +
+	            "quizId=" + quizId +
+	            ", questionId=" + questionId +
+	            ", question='" + question + '\'' +
+	            ", choice1='" + choice1 + '\'' +
+	            ", choice2='" + choice2 + '\'' +
+	            ", choice3='" + choice3 + '\'' +
+	            ", choice4='" + choice4 + '\'' +
+	            ", judge=" + Arrays.toString(judge) +
+	            '}';
+	}
+
 }

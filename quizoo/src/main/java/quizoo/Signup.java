@@ -46,6 +46,13 @@ public class Signup extends Service {
 				throw new ResourceException(e.getMessage(), e);
 			} 
 			dao.insertUser(bean);
+			
+			
+//			登録された情報を読み込み
+			bean = dao.selectSearchedUserByUserId(userId);
+//			ログイン状態にする
+			req.setUser(bean);
+			
 			res.redirect("index");
 		}else {
 			res.redirect("login-page");

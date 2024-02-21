@@ -17,6 +17,7 @@ public class AnswerhistoryBean implements Serializable{
 		this.correctCount = correctCount;
 		this.quizbean = quizbean;
 	}
+	
 
 	public String getAnsweredTime() {
 		return answeredTime;

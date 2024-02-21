@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/*全画面共通body*/
+body {
+	font-family: 'Zen Maru Gothic', serif;
+	background-color: #fffaef;
+	width: 100%;
+	/* ページの最大横幅を画面幅と同じに設定 */
+	margin: 0;
+	/* ページを水平中央に配置するために左右の余白を自動調整 */
+	margin-top: 10%;
+
+}
+
+/*全画面共通a*/
+a {
+	font-size: 1.0vw;
+	text-decoration: none;
+}
+
+/*全画面共通img*/
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+h1 {
+	font-size: 2.5vw;
+}
+
+.container {
+	margin-top: 5%;
+}
+
+.score {
+	text-align: center;
+	font-size: 40px;
+}
+
+.accuracyrate {
+	text-align: center;
+	font-size: 40px;
+}
+
+.border {
+	padding: 15px;
+	border-radius: 10px;
+}

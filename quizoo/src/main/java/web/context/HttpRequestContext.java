@@ -57,4 +57,8 @@ public class HttpRequestContext implements RequestContext{
 	public UserInfoBean getUser() {
 		return (UserInfoBean)session.getAttribute("user");
 	}
+	@Override
+	public void invalidatekeUser() {
+		session.invalidate();
+	}
 } 

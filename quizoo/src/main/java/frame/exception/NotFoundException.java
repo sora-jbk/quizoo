@@ -1,5 +1,8 @@
 package frame.exception;
 
+/**
+ * リクエストされたリソースが見つからなかった場合の例外
+ */
 public class NotFoundException extends Exception{
 	public NotFoundException() {
 		super();

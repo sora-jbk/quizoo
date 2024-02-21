@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+/*全画面共通body*/
+body {
+	background-color: #fffaef;
+	width: 100%;
+	max-width: 100%;
+	/* ページの最大横幅を画面幅と同じに設定 */
+	margin: 0;
+	/* ページを水平中央に配置するために左右の余白を自動調整 */
+	margin-top: 8%;
+
+}
+
+/*全画面共通a*/
+a {
+	font-size: 1.0em;
+	text-decoration: none;
+}
+
+/*全画面共通img*/
+img {
+	max-width: 100%;
+	vertical-align: bottom;
+}
+
+/*全画面共通header*/
+header {
+	background-color: #DBFAFD;
+	display: flex;
+	width: 100%;
+	height: 120px;
+	align-items: center;
+	position: fixed;
+	/* スクロールしてもヘッダーが固定 */
+	top: 0;
+	z-index: 1000;
+	/* ヘッダーが他の要素の上に表示されるように */
+}
+
+/*全画面共通ヘッダー画像*/
+.header-img {
+	position: fixed;
+	padding: 4px;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 130px;
+	top: 0;
+}
+
+/* ハンバーガーボタンのデザイン */
+.drawer__button { 
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    margin: 25px 30px 0 auto;
+    /* メニューを開いている時もクリックできるよう設定 */
+}
+
+/* ハンバーガーボタン内の線 */
+.drawer__button>span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2rem;
+    height: 2px;
+    background-color: black;
+    transform: translateX(-50%);
+}
+
+.drawer__button>span:first-child {
+    transform: translate(-50%, calc(-50% - 0.5rem));
+    transition: transform 0.3s ease;
+}
+
+.drawer__button>span:nth-child(2) {
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.drawer__button>span:last-child {
+    transform: translate(-50%, calc(-50% + 0.5rem));
+    transition: transform 0.3s ease;
+}
+
+/* 展開時のデザイン */
+.drawer__button.active>span:first-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.drawer__button.active>span:nth-child(2) {
+    opacity: 0;
+}
+
+.drawer__button.active>span:last-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* メニューのデザイン */
+.drawer__nav {
+    position: fixed;
+    /* 追従ヘッダーなどでも表示できるよう設定しておく */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.drawer__nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*メニュー展開時のデザイン*/
+.drawer__nav__inner {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    background-color: #D9D9D9;
+    padding: 4rem 1.5rem 1rem;
+    margin: 0 0 0 auto;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.drawer__nav.active .drawer__nav__inner {
+    transform: translateX(0);
+}
+
+.drawer__nav__menu {
+    list-style: none;
+    padding-left: 0;
+}
+
+.drawer__nav__link {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-bottom: solid 1px lightgray;
+}
+
+/* ハンバーガーメニュー展開時、背景を固定 */
+body.active {
+    overflow: hidden;
+}
+
+/* 見た目の調整 */
+section {
+    width: 100%;
+    height: 30vh;
+}
+
+section:nth-child(even) {
+    background-color: skyblue;
+}
+
+
+
+.profile {
+	padding: 20px;
+	margin-top: 120px;
+	font-size: 20px;
+}
+
+/*プロフィール画像*/
+.prof-img {
+	margin-top: 30px;
+/*	border-radius: 50%;*/
+	width: 200px;
+	height: 200px;
+}
+
+/* スタイルを適用するための親要素 */
+.custom-file-input {
+	position: relative;
+	display: inline-block;
+}
+
+/* 実際のinputは非表示 */
+.custom-file-input input {
+	display: none;
+}
+
+/* カスタムデザインのスタイル */
+.custom-file-input label {
+	display: inline-block;
+	padding: 10px 15px;
+/*	background-color: #3498db;*/
+	color: #0000ff;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.title {
+	margin-left: 10px;
+}
+
+.nickname {
+	margin-top: 50px;
+	background-color: #fffaef;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #999;
+	padding: 5px 10px;
+}
+
+.nickname:focus {
+	border-bottom-color: #ffa500;
+}
+
+.password {
+	background-color: #fffaef;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #999;
+	padding: 5px 10px;
+}
+
+.password:focus {
+	border-bottom-color: #ffa500;
+}
+
+/* ボタンのスタイル */
+.buttonRound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  color: #ffffff;
+  background-color: #f39700;
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  border: none;
+}
+
+.quiz_list {
+	margin-bottom: 0px;
+	animation: fadeIn 2s ease 1s 1 normal backwards;
+}
+
+/* 各クイズ */
+.quiz {
+	position: relative;
+	padding: 30px 0px;
+	padding-bottom: 40px;
+	margin: 0px auto;
+	margin-bottom: 40px;
+	border: 1px solid #333333;
+	border-radius: 80px;
+	background-color: rgb(215, 248, 215);
+	max-width: 70%;
+
+	padding: 20px;
+
+}
+ 
+	
+
+.quiz .title {
+	font-size: 30px;
+	margin-left: 100px;
+	font-family: cursive;
+}
+
+/*.quiz .information {*/
+/*	position: absolute;*/
+/*	z-index: 10;*/
+/*	width: 100%;*/
+/*	text-align: center !important;*/
+/*	margin-top: 10px;*/
+/*}*/
+
+/*.quiz .information a {*/
+/*	margin: 0 0.5rem;*/
+/*}*/
+
+.quiz .answer-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.ex {
+	color: #000000;
+	opacity: 0.8;
+}
+
+.profle-title{
+	text-align: center;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	font-weight: bold;
+}
+
+.nickname{
+	font-size: 20px;
+	text-align: center;
+}
+@media (any-hover: hover) {
+  .buttonRound {
+    transition: background-color 0.2s;
+  }
+
+  .buttonRound:hover {
+    background-color: #ee7800;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -14,11 +14,31 @@ import javax.sql.DataSource;
 import frame.exception.ResourceException;
 
 
+/**
+ * Dao作成の為の抽象クラスです。<br>
+ * このクラスを継承してDaoを作成してください
+ */
 public abstract class Dao {
+	/**
+	 * データベースとのコネクションを保持します
+	 */
 	protected Connection cn;
+	/**
+	 * サブクラスで使用するPreparedStatementです
+	 */
 	protected PreparedStatement st = null;
+	/**
+	 * サブクラスで使用するResultSetです
+	 */
 	protected ResultSet rs = null;
 
+	
+	/**
+	 *Tomcatのコネクションプールを使用してデータベースに接続します。<br>
+	 *失敗した場合は直接データベースに接続します。
+	 *
+	 * @throws ResourceException 接続時に例外が発生した場合
+	 */
 	protected void connect() throws ResourceException {
 		
 			try {
@@ -65,6 +85,11 @@ public abstract class Dao {
 		
 		
 
+	/**
+	 * データベースとのコネクションを切断します
+	 * 
+	 * @throws ResourceException 切断時に例外が発生した場合
+	 */
 	protected void close() throws ResourceException{
 		try {
 			// cnが解放されていないとき

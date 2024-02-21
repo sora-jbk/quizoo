@@ -14,11 +14,13 @@ public class QuizBean implements Serializable{
 	private String createTime;
 	private float correctRate;
 	private int totalParticipants;
+	private boolean deleted;
 	
+
 	public QuizBean(){}
 	
 	public QuizBean(int quizId,int authorNo,String authorNickname,String title,int questionCount,int genreNo,String genre,
-			String explanation,String createTime,float correctRate,int totalParticipants){
+			String explanation,String createTime,float correctRate,int totalParticipants,boolean deleted){
 		this.quizId=quizId;
 		this.authorNo=authorNo;
 		this.authorNickname=authorNickname;
@@ -29,6 +31,14 @@ public class QuizBean implements Serializable{
 		this.explanation=explanation;
 		this.correctRate=correctRate;
 		this.totalParticipants=totalParticipants;
+		this.deleted = deleted;
+	}
+	public boolean isDeleted() {
+		return deleted;
+	}
+	
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 
 	public int getQuizId() {
