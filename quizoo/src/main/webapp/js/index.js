@@ -5,7 +5,7 @@ var list_box;
 
 // ブラウザバックを検知
 window.addEventListener('popstate',function(){
-    if(this.document.referrer.includes("quizoo/index")){
+    if(this.document.referrer.includes("index")){
         updateQuizList();
     }
 })
@@ -13,7 +13,7 @@ window.addEventListener('popstate',function(){
 window.addEventListener('load',async function(){
 
     try{
-        genres = await fetch("/quizoo/genres");
+        genres = await fetch("genres");
         if(!genres.ok){
             throw new Error(genres.statusText);
         }
@@ -21,7 +21,7 @@ window.addEventListener('load',async function(){
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
 
@@ -138,14 +138,14 @@ async function getQuizList() {
     params = new URLSearchParams(window.location.search);
 
     try{
-        var quizList = await fetch("/quizoo/quizlist?" + params);
+        var quizList = await fetch("quizlist?" + params);
     
         quizList = await quizList.json();
 
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
 
