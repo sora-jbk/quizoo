@@ -16,11 +16,11 @@ let answerBtns;
 let questionlist; // Declare questionlist variable
 
 window.addEventListener('load', async function () {
-    // ãƒ¢ãƒ¼ãƒ€ãƒ«ã‚’å–å¾?
+    // ãƒ¢ãƒ¼ãƒ€ãƒ«ã‚’å–ï¿½?
 
     questionlist = this.document.querySelector('#question_list');
 
-    // quiz_idã‚’ã‚¯ã‚¨ãƒªæ–?å­—å?—ã‹ã‚‰å–å¾?
+    // quiz_idã‚’ã‚¯ã‚¨ãƒªï¿½?å­—ï¿½?ï¿½ã‹ã‚‰å–ï¿½?
     var currentURL = new URL(this.window.location.href);
     var params = currentURL.searchParams;
     quiz_id = params.get('quiz_id');
@@ -29,7 +29,7 @@ window.addEventListener('load', async function () {
 
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
-    // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã‚’è¨­å®?
+    // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã‚’è¨­ï¿½?
     answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
@@ -56,7 +56,7 @@ window.addEventListener('load', async function () {
 
 
     this.document.querySelector("#closeButton").addEventListener('click',()=>{
-        this.window.location.href = '/quizoo/index';
+        this.window.location.href = 'index';
     })
 
     await displayQuestionsList();
@@ -70,15 +70,15 @@ window.addEventListener('load', async function () {
 
 async function loadQuiz(quiz_id) {
     try{
-        var fetchResponse = await fetch('/quizoo/quizquestion?quiz_id=' + quiz_id);
+        var fetchResponse = await fetch('quizquestion?quiz_id=' + quiz_id);
     
         var quizQuestionJson = fetchResponse.json();
 
         return quizQuestionJson;
     }catch(e){
-        // ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
-        alert("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\nƒƒOƒCƒ“ƒy[ƒW‚É–ß‚è‚Ü‚·B");
-        window.location.href = "/quizoo/login-page";
+        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ
+        alert("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\nãƒ­ã‚°ã‚¤ãƒ³ãƒšãƒ¼ã‚¸ã«æˆ»ã‚Šã¾ã™ã€‚");
+        window.location.href = "login-page";
     }
 
 }
@@ -195,10 +195,10 @@ function scoring() {
         var result = document.createElement('div');
         result.innerText = (i+1) + "."
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
-            result.innerText+= "ã€?";
+            result.innerText+= "ï¿½?";
             score++;
         }else{
-            result.innerText+= "âœ?";
+            result.innerText+= "ï¿½?";
         }
         questionResult.appendChild(result);
     }
@@ -213,7 +213,7 @@ function scoring() {
 
 async function sendAnswer(score){
     try{
-        var res = await fetch('/quizoo/submitanswer', {
+        var res = await fetch('submitanswer', {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -229,9 +229,9 @@ async function sendAnswer(score){
             throw new Error(res.statusText);
         }
     }catch(e){
-        // ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½
-        alert("ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B\nƒƒOƒCƒ“ƒy[ƒW‚É–ß‚è‚Ü‚·B");
-        window.location.href = "/quizoo/login-page";
+        // ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸ
+        alert("ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚\nãƒ­ã‚°ã‚¤ãƒ³ãƒšãƒ¼ã‚¸ã«æˆ»ã‚Šã¾ã™ã€‚");
+        window.location.href = "login-page";
     }
 
 }
