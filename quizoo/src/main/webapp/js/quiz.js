@@ -97,7 +97,7 @@ async function displayQuestionsList() {
 }
 
 function displayQuestionDetails(questionNo) {
-    if (questionNo === currentQuestionNo)  return;
+    // if (questionNo === currentQuestionNo)  return;
     if (questionNo > quizAndQuestions['question'].length || questionNo < 0) return;
 
     // 前に選択された質問から 'active_question' クラスを削除する
@@ -128,7 +128,11 @@ function displayQuestionDetails(questionNo) {
 
 function choiceBtnClickHandler(ClickedNo){
     selectedAnswers[currentQuestionNo - 1] = ClickedNo;
-    displayQuestionDetails(currentQuestionNo + 1);
+    if (currentQuestionNo === quizAndQuestions['question'].length) {
+        displayQuestionDetails(currentQuestionNo);
+    } else {
+        displayQuestionDetails(currentQuestionNo + 1);
+    }
 }
 
 
