@@ -16,11 +16,11 @@ let answerBtns;
 let questionlist; // Declare questionlist variable
 
 window.addEventListener('load', async function () {
-    // モーダルを取�?
+    // モーダルを取得
 
     questionlist = this.document.querySelector('#question_list');
 
-    // quiz_idをクエリ�?字�?�から取�?
+    // quiz_idをクエリ文字列から取得
     var currentURL = new URL(this.window.location.href);
     var params = currentURL.searchParams;
     quiz_id = params.get('quiz_id');
@@ -29,7 +29,7 @@ window.addEventListener('load', async function () {
 
     selectedAnswers = new Array(quizAndQuestions['question'].length);
 
-    // 選択肢ボタンを設�?
+    // 選択肢ボタンを設定
     answerBtns = document.querySelectorAll('#answer_btn');
 
     for(let i = 0; i < answerBtns.length; i++) {
@@ -195,10 +195,10 @@ function scoring() {
         var result = document.createElement('div');
         result.innerText = (i+1) + "."
         if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
-            result.innerText+= "�?";
+            result.innerText+= "〇";
             score++;
         }else{
-            result.innerText+= "�?";
+            result.innerText+= "×";
         }
         questionResult.appendChild(result);
     }
