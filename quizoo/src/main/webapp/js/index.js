@@ -132,6 +132,13 @@ async function updateQuizList() {
         }
     },25);
 
+    setInterval(() => {
+        list = document.querySelectorAll(".quiz");
+        
+        for(var i = 0 ; i < list.length ; i++){
+            list[i].style.transitionDelay = null;
+        }
+    },list.length * 25 + 200);
 }
 
 async function getQuizList() {
