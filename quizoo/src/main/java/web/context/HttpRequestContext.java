@@ -46,7 +46,13 @@ public class HttpRequestContext implements RequestContext{
 	}
 	@Override
 	public String getTargetServiceKey() {
-		return req.getRequestURI().toString().replaceFirst("/quizoo/","");
+		String requestURI = req.getRequestURI();
+		if(requestURI.startsWith("/quizoo")){
+			requestURI = requestURI.replaceFirst("/quizoo/","");
+		}else {
+			requestURI = requestURI.replaceFirst("/","");			
+		}
+		return requestURI;
 	}
 	@Override
 	public void setUser(UserInfoBean user) {

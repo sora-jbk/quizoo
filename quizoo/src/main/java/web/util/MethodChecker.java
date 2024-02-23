@@ -23,7 +23,11 @@ public class MethodChecker {
 		}
 
 		String reqMethod = req.getMethod();
-		String reqService = req.getRequestURI().toString().replaceFirst("/quizoo/", "");
+		
+		
+		String contextPath = req.getContextPath();
+		
+		String reqService = req.getRequestURI().toString().replaceFirst(contextPath, "");
 		
 
 		

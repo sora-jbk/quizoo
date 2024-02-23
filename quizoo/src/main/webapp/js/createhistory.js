@@ -6,7 +6,7 @@ let createHistoryList;
 
 window.addEventListener("load", async () => {
     try{
-        const response = await fetch("/quizoo/createhistoryjson", {
+        const response = await fetch("createhistoryjson", {
             credentials: "include"
         });
         
@@ -18,7 +18,7 @@ window.addEventListener("load", async () => {
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
     // createHistoryList が存在するか確認

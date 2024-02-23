@@ -3,7 +3,7 @@ let metadataModal;
 let questionEditors = [];
 let EditingQuestionNo = 0;
 let genres;
-fetch("/quizoo/genres").then(response => response.json()).then(data => {
+fetch("genres").then(response => response.json()).then(data => {
     genres = data;
 })
 window.addEventListener("load",function () {
@@ -301,7 +301,7 @@ async function postQuiz(){
         "explanation":metadataModal.querySelector("#post-explanation").value
     }
     try{
-        var res = await fetch("/quizoo/submitquiz",{
+        var res = await fetch("submitquiz",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -319,7 +319,7 @@ async function postQuiz(){
     }catch(e){
         // エラーが発生した場合はログインページに戻る
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
     clearCreateModal();
     clearMetadataModal();
