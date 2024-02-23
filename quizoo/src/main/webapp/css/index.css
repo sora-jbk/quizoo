@@ -37,6 +37,7 @@ button {
 	width: 33%;
 	text-align: center;
 	font-size: 1.5em;
+	cursor: pointer;
 }
 
 .order-menu>*:hover{
