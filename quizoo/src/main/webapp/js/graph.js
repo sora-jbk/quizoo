@@ -2,7 +2,7 @@
 let historyList;
 window.addEventListener('load', async () => {
 	try{
-		historyList = await fetch("/quizoo/answerhistory", {
+		historyList = await fetch("answerhistory", {
 			credentials: "include"
 		});
 		if(!historyList.ok){
@@ -12,7 +12,7 @@ window.addEventListener('load', async () => {
 	}catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
 	let correctCount = 0;

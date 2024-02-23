@@ -20,7 +20,7 @@ window.addEventListener('load', function() {
 	var pathname = null;
 	pathname = location.pathname;
 
-	if (pathname != '/quizoo/index') {
+	if (pathname != 'index') {
 		document.getElementById('input-group').classList.remove('seach-box');
 
 	}

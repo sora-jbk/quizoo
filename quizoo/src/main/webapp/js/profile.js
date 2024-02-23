@@ -10,7 +10,7 @@ form.addEventListener("submit", async (event) => {
    
     
     try{
-        var res = fetch("/quizoo/updatenickname?nickname=test",{
+        var res = fetch("updatenickname?nickname=test",{
           head:{
                 "Content-Type":"application/json"
             },
@@ -24,7 +24,7 @@ form.addEventListener("submit", async (event) => {
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
 	
@@ -39,7 +39,7 @@ form.addEventListener("submit", async (event) => {
 
    
     try{
-        var res = fetch("/quizoo/updatepassword?password=test",{
+        var res = fetch("updatepassword?password=test",{
             head:{
                 "Content-Type":"application/json"
             },
@@ -53,7 +53,7 @@ form.addEventListener("submit", async (event) => {
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "/quizoo/login-page";
+        window.location.href = "login-page";
     }
 
     
