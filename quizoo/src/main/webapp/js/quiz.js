@@ -35,7 +35,6 @@ window.addEventListener('load', async function () {
     for(let i = 0; i < answerBtns.length; i++) {
         answerBtns[i].addEventListener('click', function() {
             choiceBtnClickHandler(i);
-            chengeSelected(i);
         });
     }
 
@@ -102,8 +101,15 @@ async function displayQuestionsList() {
 }
 
 function displayQuestionDetails(questionNo) {
-    if (questionNo === currentQuestionNo)  return;
+    // if (questionNo === currentQuestionNo)  return;
     if (questionNo > quizAndQuestions['question'].length || questionNo < 0) return;
+
+    // 前に選択された質問から 'active_question' クラスを削除する
+    if (currentQuestionNo) {
+        var previousQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+        previousQuestionElement.classList.remove('active_question');
+    }
+
     let oldSentence = document.querySelector('#question-sentence');
 
     currentQuestionNo = questionNo;
@@ -117,14 +123,20 @@ function displayQuestionDetails(questionNo) {
         newChoicesWrapper.querySelectorAll("#answer-btn")[i].addEventListener('click',choiceBtnClickHandler.bind(this,i+1));
     }
     oldChoicesWrapper.replaceWith(newChoicesWrapper);
-    
-    chengeSelected(selectedAnswers[currentQuestionNo - 1]);
+
+    // 現在選択されている質問に 'active_question' クラスを追加する
+    var currentQuestionElement = document.querySelector(`#question_list li:nth-child(${currentQuestionNo})`);
+    currentQuestionElement.classList.add('active_question');
 }
 
 
 function choiceBtnClickHandler(ClickedNo){
     selectedAnswers[currentQuestionNo - 1] = ClickedNo;
-    displayQuestionDetails(currentQuestionNo + 1);
+    if (currentQuestionNo === quizAndQuestions['question'].length) {
+        displayQuestionDetails(currentQuestionNo);
+    } else {
+        displayQuestionDetails(currentQuestionNo + 1);
+    }
 }
 
 
@@ -157,6 +169,10 @@ function createChoiseNodes(questionNo) {
         button.setAttribute('class','btn btn--orange');
         button.setAttribute('id','answer-btn');
 
+        if(selectedAnswers[currentQuestionNo - 1] === i){
+            button.classList.add('selected');
+        }
+
         td.appendChild(button);
 
         tr.appendChild(td.cloneNode(true));
@@ -175,17 +191,6 @@ function createChoiseNodes(questionNo) {
 
 }
 
-
-
-function chengeSelected(selectedNo = 0) {
-    for(let i = 0; i < answerBtns.length; i++) {
-        if(selectedNo === i){
-            answerBtns[i].classList.add('selected');
-        }else{
-            answerBtns[i].classList.remove('selected');
-        }
-    }
-}
 
 function scoring() {
     let questionResult = document.createElement('div');
