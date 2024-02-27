@@ -48,7 +48,7 @@
 				<button><p>Login</p></button>
 			</form>
 			<form class="signup-form" id="signup-form" action="signup" method="post">
-				<input type="text" name="id" placeholder="UserId">
+				<input type="text" id="new-user-id" name="id" placeholder="UserId">
 				<input type="text" name="name" placeholder="Nickname">
 				<input type="password" name="password" placeholder="Password">
 				<input type="password" name="passwordAgain" placeholder="Password Again">

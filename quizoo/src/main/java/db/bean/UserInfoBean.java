@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class UserInfoBean implements Serializable{ 
     private String userId; 
-    private int userNo;  
+    private int userNo = -1;  
     private String nickname;
     private String password;
-    private int totalAnswer;
-    private int correctAnswer;
-    private float rating;
+    private int totalAnswer = -1;
+    private int correctAnswer = -1;
+    private float rating = -1.0f;
     
     public UserInfoBean() {}
     
