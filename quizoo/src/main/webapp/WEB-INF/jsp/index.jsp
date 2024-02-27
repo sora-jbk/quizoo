@@ -23,7 +23,6 @@
 		href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 </head>
-
 <body>
     <!-- 上のヘッダー -->
     <%@ include file="header.jsp" %>
@@ -34,22 +33,20 @@
 			<select id="genre_selector" class="genre_selector">
 			</select>
     </header>
-    <!-- クイズリスト  -->
-    <div class="quiz_list" id="quiz_list">
-        <div class="quiz">
-            <div class="width row">
-                <div class="title col">
-                    <p>常識クイズ</p>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!--　クイズリスト  -->
+	<div class="quiz_list mx-auto" id="quiz_list">
+		<div class="loader" id="loader">
+			<p class="txt">ロード中...</p>
+		</div>
+
+	</div>
     <div class="fixed-bottom text-right create-quiz-btn">
         <a id="create-quiz-open" class="create-quiz-open" data-slide-index="1"> 
         	<i class="fa-solid fa-pen"></i>
         </a>
     </div>
 	<!-- トップに戻るボタン -->
+
 
 	<div class="go-top-btn" id="go-top-btn">
 		<a href="#top"></a>

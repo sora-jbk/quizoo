@@ -100,6 +100,9 @@ async function updateQuizList() {
         document.querySelector("#genre_selector").value = url.searchParams.get("genre_no");   
     }
 
+
+    setTimeout(fadeOutLoader, 3000);
+    
     quizList = await getQuizList();
     let list;
     
@@ -267,4 +270,13 @@ function goTopBtnControl(){
     }else{
         document.querySelector("#go-top-btn").style.bottom = "-80px";
     }
+}
+    // ローダーをフェードアウトする関数
+function fadeOutLoader() {
+    // ローダーの要素にフェードアウト用のクラスを追加
+    loaderSection.classList.add('fadeOut');
+    // 2秒後にローダーの要素を非表示にする
+    setTimeout(function() {
+        document.querySelector('#loader').style.display = 'none';
+    }, 3000);
 }
