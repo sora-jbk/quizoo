@@ -188,26 +188,27 @@ function quizlistFactory(quizList){
         
         create_time = document.createElement('a');
         create_time.setAttribute('class','create_time');
-        create_time.innerText = quiz['createTime'];
+        create_time.innerText = "作成日時:" + quiz['createTime'];
         
         genre = document.createElement('a');
-        genre.innerText = quiz['genre'];
+        genre.innerText = "ジャンル:" + quiz['genre'];
         genre.setAttribute('class','genre');
         genre.addEventListener('click',filterGenre.bind(null,quiz['genreNo']));
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
+        ratio.innerText = "正答率:";
         if(quiz['questionCount'] ==  0){
-            ratio.innerText = 'nodata'
+            ratio.innerText += 'nodata'
         }else{
-            ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
+            ratio.innerText += ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2) * 100 + '%';
         }
         
         author = document.createElement('a');
         author.setAttribute('class','author');
 
         let nickname = quiz['authorNickname'];
-        author.innerText = nickname ? nickname : "ななし";
+        author.innerText = "作成者:" + (nickname ? nickname : "ななし");
         author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
         info.appendChild(author);
