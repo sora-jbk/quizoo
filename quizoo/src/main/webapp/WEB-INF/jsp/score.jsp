@@ -36,21 +36,21 @@
 
 	<div class="container">
 		<div class="score_accuracyrate row">
-			<div class="score col-sm-6">
-				<span class="border border-primary-subtle border-4" id="rate">
-					 </span>
-			</div>
-
 			<div class="accuracyrate col-sm-6">
 				<span class="border border-primary-subtle border-4" id="correctRate">
 					</span>
+			</div>
+
+			<div class="score col-sm-6">
+				<span class="border border-primary-subtle border-4" id="rate">
+					 </span>
 			</div>
 		</div>
 	</div>
 	
 	<div class="graph-container">
-		<canvas id="chart2" class="graph"></canvas>
 		<canvas id="chart" class="graph"></canvas>
+		<canvas id="chart2" class="graph"></canvas>
 	</div>
 
 
