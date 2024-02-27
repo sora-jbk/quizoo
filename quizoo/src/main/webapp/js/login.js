@@ -8,6 +8,7 @@ window.addEventListener('load', function() {
 	document.querySelector("#select-login").addEventListener('click', displayLoginForm);
 	document.querySelector("#select-signup").addEventListener('click', displaySignUpForm);
 	document.querySelector("#new-user-id").addEventListener('input', checkUsedUsername);
+	this.document.querySelector("#signup-form").addEventListener("submit",checkUsedUsername);
 });
 
 function displayLoginForm() {
@@ -29,24 +30,24 @@ async function checkUsedUsername(event) {
 
 	var username = event.target.value;
 
-	try{
-		var response = await fetch("checkuserid", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
+	var response = await fetch("checkuserid", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
 
-			},
-			body: JSON.stringify({
-				"username": username
-			})
-		});
-		console.log(response["isUsed"]);
-	}catch(e){
-		// エラーが発生しました
-		alert("エラーが発生しました。\nログインページに戻ります。");
-		window.location.href = "login-page";
+		},
+		body: JSON.stringify({
+			"userid": username
+		})
+	});
+	response = await response.json();
 
+	if(response["isUsed"]){
+		event.target.setCustomValidity("このIDは既に使われています");
+	}else{
+		event.target.setCustomValidity("");
 	}
+	event.target.reportValidity();
 
-
+	return !response["isUsed"];
 }
