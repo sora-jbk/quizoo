@@ -43,15 +43,15 @@
 				</div>
 			</div>
 			<form class="login-form" id="login-form" action="login" method="post">
-				<input type="text" name="id" placeholder="UserId">
-				<input type="password" name="password" placeholder="Password">
+				<input type="text" name="id" placeholder="UserId" required>
+				<input type="password" name="password" placeholder="Password" required>
 				<button><p>Login</p></button>
 			</form>
 			<form class="signup-form" id="signup-form" action="signup" method="post">
-				<input type="text" name="id" placeholder="UserId">
-				<input type="text" name="name" placeholder="Nickname">
-				<input type="password" name="password" placeholder="Password">
-				<input type="password" name="passwordAgain" placeholder="Password Again">
+				<input type="text" id="new-user-id" name="id" placeholder="UserId" required>
+				<input type="text" name="name" placeholder="Nickname" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="password" name="passwordAgain" placeholder="Password Again" required>
 				<button><p>Signup</p></button>
 			</form>
 		</div>
