@@ -38,10 +38,7 @@
 		<div class="quizlist">
 			<div class="d-flex flex-column">
 				<ol  id="question_list">
-					<li>20歳</li>
-					<li>長野県</li>
-					<li>東中野</li>
-					<li>東中野</li>
+					<li></li>
 				</ol>
 				<!-- Button trigger modal -->
 				<button type="button" class="close-btn" id="endButton">回答完了</button>
@@ -81,17 +78,7 @@
 			<div class="Problem-statement">
 				<div class="border border-dark rounded bg-white">
 					<div class="sentence" id="question-sentence">
-						こまむらえいやの誕生日は何月何日でしょう？
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
-						ああああああああああああああああああああああああああああああああああああああああああああ
+						読み込み中。。。
 					</div>
 
 				</div>
@@ -102,13 +89,13 @@
 							<button type="button" class="btn btn--orange" id="answer-btn">1</button>
 						</td>
 						<td>
-							<div class="choice">1月1日</div>
+							<div class="choice"></div>
 						</td>
 						<td>
 							<button type="button" class="btn btn--orange" id="answer-btn">2</button>
 						</td>
 						<td>
-							<div class="choice">2月18日</div>
+							<div class="choice"></div>
 						</td>
 					</tr>
 					<tr>
@@ -116,13 +103,13 @@
 							<button type="button" class="btn btn--orange" id="answer-btn">3</button>
 						</td>
 						<td>
-							<div class="choice">4月5日</div>
+							<div class="choice"></div>
 						</td>
 						<td>
 							<button type="button" class="btn btn--orange" id="answer-btn">4</button>
 						</td>
 						<td>
-							<div class="choice">5月3日</div>
+							<div class="choice"></div>
 						</td>
 					</tr>
 				</table>
