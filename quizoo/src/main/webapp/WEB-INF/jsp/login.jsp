@@ -50,8 +50,8 @@
 			<form class="signup-form" id="signup-form" action="signup" method="post">
 				<input type="text" id="new-user-id" name="id" placeholder="UserId" required>
 				<input type="text" name="name" placeholder="Nickname" required>
-				<input type="password" name="password" placeholder="Password" required>
-				<input type="password" name="passwordAgain" placeholder="Password Again" required>
+				<input type="password" id="submit-password" name="password" placeholder="Password" required>
+				<input type="password" id="submit-password-again" name="passwordAgain" placeholder="Password Again" required>
 				<button><p>Signup</p></button>
 			</form>
 		</div>
