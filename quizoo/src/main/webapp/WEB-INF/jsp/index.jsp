@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>QuiZoo</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/index.css">
