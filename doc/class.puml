@@ -173,13 +173,13 @@ package db{
         }
 
         class QuestionBean {
-            - quiz_id: int
-            - question_id: int
+            - quizId: int
+            - questionId: int
             - question: String
-            - choice_1: String
-            - choice_2: String
-            - choice_3: String
-            - choice_4: String
+            - choice1: String
+            - choice2: String
+            - choice3: String
+            - choice4: String
             - judge: byte[]
             + QuestionBean()
             + QuestionBean(all fields as parameters)
@@ -195,13 +195,47 @@ package db{
         }
 
         class AnswerhistoryBean {
-            - userNo: int
-            - quizId: int
             - answeredTime: String
             - questionCount: int
             - correctCount: int
             + AnswerhistoryBean()
             + AnswerhistoryBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class CreateHistoryBean {
+            - title: String
+            - explanation: String
+            - genre: String
+            - correctRate: float
+            - questionCount: int
+            + CreateHistoryBean()
+            + CreateHistoryBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class GenreBean {
+            - genreNo: int
+            - genre_title: String
+            + GenreBean()
+            + GenreBean(all fields as parameters)
+            + Accessors (getters & setters)
+        }
+
+        class UserAnswerhistoryBean {
+            - quizId: int
+            - answeredTime: String
+            - questionCount: int
+            - correctCount: int
+            - userId: String
+            - userNo: int
+            - nickname: String
+            - password: String
+            - totalAnswer: int
+            - correctAnswer: int
+            - rating: float
+            + UserAnswerhistoryBean()
+            + UserAnswerhistoryBean(all fields as parameters)
             + Accessors (getters & setters)
         }
 
