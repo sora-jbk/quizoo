@@ -1,5 +1,17 @@
 
 let historyList;
+
+function showDivByCondition() {
+	if (historyList == null) {
+		document.getElementById('existScore').style.display = 'none';
+		console.log("スコアがない");
+		document.getElementById('noScore').innerHTML = '<p>スコアがありません</p>';
+
+	} else {
+		document.getElementById('noScore').style.display = 'none';
+	}	
+}
+
 window.addEventListener('load', async () => {
 	try{
 		historyList = await fetch("answerhistory", {
@@ -15,6 +27,8 @@ window.addEventListener('load', async () => {
         window.location.href = "login-page";
     }
 
+	showDivByCondition();
+
 	let correctCount = 0;
 	let questionCount = 0;
 	// 正解率をだすfor文
@@ -27,10 +41,6 @@ window.addEventListener('load', async () => {
 		var correctRate = Math.round(((correctCount / questionCount) * 100) * 10) / 10;
 		config.data.datasets[0].data.push(correctRate);
 		config.data.labels.push(quizCount);
-		console.log("正解数"+correctCount);
-		console.log("質問数："+questionCount);
-		console.log("クイズ数："+quizCount);
-		console.log("率："+correctRate);
 
 		var rate = Math.round(((correctCount * correctCount) / questionCount) * 10) / 10; 
 		config2.data.datasets[0].data.push(rate);
@@ -38,14 +48,14 @@ window.addEventListener('load', async () => {
 
 	}
 	// 正解率のChart 
-	const ctx = document.getElementById('chart').getContext('2d');
-	const myChart = new Chart(ctx, config);
-	document.getElementById('rate').innerHTML = 'レート ' + rate;
+//	const ctx = document.getElementById('chart').getContext('2d');
+//	const myChart = new Chart(ctx, config);
+//	document.getElementById('rate').innerHTML = 'レート ' + rate;
 
 
 	// レートのChart 
-	const ctx2 = document.getElementById('chart2').getContext('2d');
-	const myChart2 = new Chart(ctx2, config2);
+	const ctx = document.getElementById('chart').getContext('2d');
+	const myChart = new Chart(ctx, config);
 	document.getElementById('correctRate').innerHTML = '正解率 ' + correctRate + '%';
 });
 
@@ -97,7 +107,7 @@ let config = {
 					},
 				},	
 			}
-		}
+		}	
 	}
 };
 

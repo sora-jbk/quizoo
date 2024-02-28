@@ -100,6 +100,9 @@ async function updateQuizList() {
         document.querySelector("#genre_selector").value = url.searchParams.get("genre_no");   
     }
 
+
+    setTimeout(fadeOutLoader, 3000);
+    
     quizList = await getQuizList();
     let list;
     
@@ -132,6 +135,13 @@ async function updateQuizList() {
         }
     },25);
 
+    setInterval(() => {
+        list = document.querySelectorAll(".quiz");
+        
+        for(var i = 0 ; i < list.length ; i++){
+            list[i].style.transitionDelay = null;
+        }
+    },list.length * 25 + 200);
 }
 
 async function getQuizList() {
@@ -178,7 +188,10 @@ function quizlistFactory(quizList){
         
         create_time = document.createElement('a');
         create_time.setAttribute('class','create_time');
-        create_time.innerText = quiz['createTime'];
+        create_time.innerText = "作成日時:" + quiz['createTime'];
+        
+        genre_text = document.createElement('a');
+        genre_text.innerText = "ジャンル:";
         
         genre = document.createElement('a');
         genre.innerText = quiz['genre'];
@@ -187,21 +200,27 @@ function quizlistFactory(quizList){
         
         ratio = document.createElement('a');
         ratio.setAttribute('class','raito');
+        ratio.innerText = "正答率:";
         if(quiz['questionCount'] ==  0){
-            ratio.innerText = 'nodata'
+            ratio.innerText += 'nodata'
         }else{
-            ratio.innerText = ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2)
+            ratio.innerText += ' ' + (parseFloat(quiz['correctRate'])/parseFloat(quiz['questionCount'])).toFixed(2) * 100 + '%';
         }
+        
+        author_text = document.createElement('a');
+        author_text.innerText = "作成者:";
         
         author = document.createElement('a');
         author.setAttribute('class','author');
 
         let nickname = quiz['authorNickname'];
-        author.innerText = nickname ? nickname : "ななし";
+        author.innerText = (nickname ? nickname : "ななし");
         author.setAttribute('href','profile?user_no='+quiz['authorNo']);
         
+        info.appendChild(author_text);
         info.appendChild(author);
         info.appendChild(create_time);
+        info.appendChild(genre_text);
         info.appendChild(genre);
         info.appendChild(ratio);    
         
@@ -260,4 +279,13 @@ function goTopBtnControl(){
     }else{
         document.querySelector("#go-top-btn").style.bottom = "-80px";
     }
+}
+    // ローダーをフェードアウトする関数
+function fadeOutLoader() {
+    // ローダーの要素にフェードアウト用のクラスを追加
+    loaderSection.classList.add('fadeOut');
+    // 2秒後にローダーの要素を非表示にする
+    setTimeout(function() {
+        document.querySelector('#loader').style.display = 'none';
+    }, 3000);
 }

@@ -37,6 +37,10 @@ h1 {
 	font-size: 40px;
 }
 
+.score_accuracyrate {
+	margin-top: 40px;
+}
+
 .accuracyrate {
 	text-align: center;
 	font-size: 40px;
@@ -45,4 +49,19 @@ h1 {
 .border {
 	padding: 15px;
 	border-radius: 10px;
+}
+
+.graph-container {
+	justify-content: center;
+    position: relative;
+    width:  calc(100% - 20px);
+    overflow: hidden;
+    margin-top: 20px;
+    display: flex;
+}
+
+.graph {
+    max-width: 50%;
+    max-height: 400px;
+    display: block;
 }

@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
 	pathname = location.pathname;
 
 	if (pathname != 'index') {
-		document.getElementById('input-group').classList.remove('seach-box');
+		document.getElementById('search-textbox').classList.remove('seach-box');
 
 	}
 });
