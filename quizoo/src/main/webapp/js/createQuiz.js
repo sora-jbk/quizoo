@@ -290,10 +290,10 @@ async function postQuiz(){
             "choice3":editor.querySelectorAll("#choice-text")[2].value,
             "choice4":editor.querySelectorAll("#choice-text")[3].value,
             "judge":[
-                editor.querySelectorAll("[name='choice']")[0].checked,
-                editor.querySelectorAll("[name='choice']")[1].checked,
+                editor.querySelectorAll("[name='choice']")[3].checked,
                 editor.querySelectorAll("[name='choice']")[2].checked,
-                editor.querySelectorAll("[name='choice']")[3].checked
+                editor.querySelectorAll("[name='choice']")[1].checked,
+                editor.querySelectorAll("[name='choice']")[0].checked
             ]
         });
     }
