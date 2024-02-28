@@ -6,7 +6,7 @@ pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/notfound.css">
 
-<title>notfound</title>
+<title>QuiZoo | notfound</title>
 <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
