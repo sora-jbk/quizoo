@@ -3,6 +3,13 @@
  */
 const form = document.getElementById("login-form");
 
+function showCompletionMessage(){
+    document.querySelector("#snackbar").classList.add("show");
+    setInterval(function(){
+        document.querySelector("#snackbar").classList.remove("show");
+    },2000);
+}
+
 
 //// 'submit' イベントのハンドラーを追加
 form.addEventListener("submit", async (event) => {
@@ -10,7 +17,7 @@ form.addEventListener("submit", async (event) => {
    
     
     try{
-        var res = fetch("updatenickname?nickname=test",{
+        var res = await fetch("updatenickname?nickname=test",{
           head:{
                 "Content-Type":"application/json"
             },
@@ -18,16 +25,13 @@ form.addEventListener("submit", async (event) => {
             method:"post",
             credentials:"include",
         })
-        if(!res.ok){
-            throw new Error(res.statusText);
-        }
     }catch(e){
         // エラーが発生しました
         alert("エラーが発生しました。\nログインページに戻ります。");
         window.location.href = "login-page";
     }
 
-	
+	showCompletionMessage();
     event.preventDefault();
 
     sendData();
@@ -52,11 +56,11 @@ form.addEventListener("submit", async (event) => {
         }
     }catch(e){
         // エラーが発生しました
-        alert("エラーが発生しました。\nログインページに戻ります。");
-        window.location.href = "login-page";
+//        alert("エラーが発生しました。\nログインページに戻ります。");
+//        window.location.href = "login-page";
     }
 
-    
+    showCompletionMessage();
     event.preventDefault();
 
     sendData();

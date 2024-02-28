@@ -43,6 +43,8 @@
 			<button type="submit" class="buttonRound">変更</button>
 		</form>
 	</div>
+	
+	<div class="snackbar" id="snackbar">変更しました！</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
