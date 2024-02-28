@@ -48,14 +48,14 @@ window.addEventListener('load', async () => {
 
 	}
 	// 正解率のChart 
-	const ctx = document.getElementById('chart').getContext('2d');
-	const myChart = new Chart(ctx, config);
-	document.getElementById('rate').innerHTML = 'レート ' + rate;
+//	const ctx = document.getElementById('chart').getContext('2d');
+//	const myChart = new Chart(ctx, config);
+//	document.getElementById('rate').innerHTML = 'レート ' + rate;
 
 
 	// レートのChart 
-	const ctx2 = document.getElementById('chart2').getContext('2d');
-	const myChart2 = new Chart(ctx2, config2);
+	const ctx = document.getElementById('chart').getContext('2d');
+	const myChart = new Chart(ctx, config);
 	document.getElementById('correctRate').innerHTML = '正解率 ' + correctRate + '%';
 });
 
@@ -107,7 +107,7 @@ let config = {
 					},
 				},	
 			}
-		}
+		}	
 	}
 };
 
