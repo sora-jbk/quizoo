@@ -641,14 +641,14 @@ a.btn-border-shadow--color2:before {
 	font-size: 1.5vw;
 }
 
-.author, .genre {
+.genre {
 	position: relative;
 	z-index: 1;
 	text-decoration: none;
 	left: -1em;
 }
 
-.author:hover, .genre:hover {
+.genre:hover {
 	background-color: #0000001e;
 	border-radius: 0.25rem;
 }
