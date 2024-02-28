@@ -281,12 +281,14 @@ async function postQuiz(){
     
     let questionDatas = [];
     for(var editor of questionEditors){
+        var choice = editor.querySelectorAll("#choice-text");
+        console.log(choice);
         questionDatas.push({
             "question":editor.querySelector("#question-text").value,
-            "choice1":editor.querySelector("#choice-text").value,
-            "choice2":editor.querySelector("#choice-text").value,
-            "choice3":editor.querySelector("#choice-text").value,
-            "choice4":editor.querySelector("#choice-text").value,
+            "choice1":editor.querySelectorAll("#choice-text")[0].value,
+            "choice2":editor.querySelectorAll("#choice-text")[1].value,
+            "choice3":editor.querySelectorAll("#choice-text")[2].value,
+            "choice4":editor.querySelectorAll("#choice-text")[3].value,
             "judge":[
                 editor.querySelectorAll("[name='choice']")[0].checked,
                 editor.querySelectorAll("[name='choice']")[1].checked,
