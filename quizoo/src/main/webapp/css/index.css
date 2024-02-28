@@ -168,6 +168,7 @@ button {
 .quiz .information .genre {
 	color: #4D9BC1;
 	cursor: pointer;
+	left: -1em;
 }
 
 
@@ -644,6 +645,7 @@ a.btn-border-shadow--color2:before {
 	position: relative;
 	z-index: 1;
 	text-decoration: none;
+	left: -1em;
 }
 
 .author:hover, .genre:hover {
