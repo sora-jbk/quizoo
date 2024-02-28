@@ -199,7 +199,7 @@ function scoring() {
     for(let i = 0; i < quizAndQuestions['question'].length; i++) {
         var result = document.createElement('div');
         result.innerText = (i+1) + "."
-        if(quizAndQuestions['question'][i]['judge'][selectedAnswers[i]]) {
+        if(quizAndQuestions['question'][i]['judge'][4 - selectedAnswers[i]]) {
             result.innerText+= "〇";
             score++;
         }else{
